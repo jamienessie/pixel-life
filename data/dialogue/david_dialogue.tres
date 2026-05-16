@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "david_dialogue"
+nodes = {
+	"greet": {
+		"text": "Mornin'. Always more weeds than hours in the day.",
+		"choices": [
+			{"text": "Need a hand?", "next": "help"},
+			{"text": "How's the harvest looking?", "next": "harvest"},
+			{"text": "You smell nice today.", "next": "flirt", "relationship_stage_required": "friend"},
+			{"text": "Run away with me.", "next": "propose_response", "relationship_stage_required": "dating"},
+			{"text": "How was your day, dear?", "next": "spouse_chat", "relationship_stage_required": "married"},
+			{"text": "Bye.", "next": "farewell"}
+		]
+	},
+	"help": {
+		"text": "Kind of you. I've got it. Come by sometime and watch the wheat grow.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"harvest": {
+		"text": "Wheat's coming in strong. Potatoes need rain.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"flirt": {
+		"text": "Heh. That's the manure, probably. But thanks.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"propose_response": {
+		"text": "I don't run from much. But maybe walking with you sounds alright.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"spouse_chat": {
+		"text": "Long. Tilled the south plot. Glad you're home.",
+		"choices": [{"text": "Me too.", "next": "farewell"}]
+	},
+	"farewell": {
+		"text": "Take care now.",
+		"choices": []
+	}
+}

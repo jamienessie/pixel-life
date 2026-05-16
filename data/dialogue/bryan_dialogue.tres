@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "bryan_dialogue"
+nodes = {
+	"greet": {
+		"text": "Hmph. You again. What do you want?",
+		"choices": [
+			{"text": "Nice weather we're having!", "next": "weather"},
+			{"text": "How's the farm?", "next": "farm"},
+			{"text": "Never mind.", "next": "farewell"}
+		]
+	},
+	"weather": {
+		"text": "Weather's fine if you're not trying to get hay in before the rain. Got work to do.",
+		"choices": [
+			{"text": "Need any help?", "next": "help"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"farm": {
+		"text": "Farm's fine. Crops are growing, animals are fed. Can't ask for much more.",
+		"choices": [
+			{"text": "That's good to hear.", "next": "thanks"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"help": {
+		"text": "I work alone. But... I appreciate the offer. Maybe some other time.",
+		"choices": [
+			{"text": "Sure, talk to you later.", "next": "farewell"}
+		]
+	},
+	"thanks": {
+		"text": "Hmph. At least someone around here appreciates hard work.",
+		"choices": [
+			{"text": "Take care, Bryan.", "next": "farewell"}
+		]
+	},
+	"farewell": {
+		"text": "Yeah, yeah. See you around.",
+		"choices": []
+	}
+}

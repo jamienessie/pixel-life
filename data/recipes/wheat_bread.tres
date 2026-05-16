@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/recipe_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "wheat_bread"
+name = "Wheat Bread"
+inputs = {"wheat": 3}
+outputs = {"wheat_bread": 1}
+station = "kitchen"
+time_minutes = 45
+description = "Better than cereal."

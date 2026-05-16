@@ -1,0 +1,138 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dmmh51wggavrg"]
+[ext_resource type="FontVariation" path="res://ui/theme/font_m5x7.tres" id="1"]
+[ext_resource type="FontVariation" path="res://ui/theme/font_m3x6.tres" id="2"]
+
+[resource]
+default_font = ExtResource("1")
+default_font_size = 16
+
+theme_type_variations = {
+}
+
+# --- Label defaults ---
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 1
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+
+# --- Button defaults ---
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.8, 0.8, 0.4, 1)
+Button/colors/font_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(0.9, 0.9, 0.7, 1)
+Button/colors/icon_pressed_color = Color(0.8, 0.8, 0.5, 1)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(0.4, 0.4, 0.4, 1)
+Button/styles/normal = SubResource("style_normal")
+Button/styles/hover = SubResource("style_hover")
+Button/styles/pressed = SubResource("style_pressed")
+Button/styles/disabled = SubResource("style_disabled")
+Button/styles/focus = SubResource("style_focus")
+
+# --- Panel defaults ---
+Panel/styles/panel = SubResource("style_panel")
+
+# --- ProgressBar defaults ---
+ProgressBar/font_sizes/font_size = 12
+ProgressBar/fonts/font = ExtResource("2")
+
+# --- HSlider defaults ---
+HSlider/sliders/grabber = SubResource("style_grabber")
+HSlider/sliders/grabber_highlight = SubResource("style_grabber")
+HSlider/styles/slider = SubResource("style_slider")
+
+# --- Window defaults ---
+Window/styles/panel = SubResource("style_panel")
+
+[sub_resource type="StyleBoxFlat" id="style_normal"]
+content_margin_left = 4
+content_margin_right = 4
+content_margin_top = 2
+content_margin_bottom = 2
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+draw_center = true
+
+[sub_resource type="StyleBoxFlat" id="style_hover"]
+content_margin_left = 4
+content_margin_right = 4
+content_margin_top = 2
+content_margin_bottom = 2
+bg_color = Color(0.3, 0.3, 0.25, 1)
+border_color = Color(0.7, 0.7, 0.4, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+draw_center = true
+
+[sub_resource type="StyleBoxFlat" id="style_pressed"]
+content_margin_left = 4
+content_margin_right = 4
+content_margin_top = 2
+content_margin_bottom = 2
+bg_color = Color(0.25, 0.25, 0.15, 1)
+border_color = Color(1, 1, 0, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+draw_center = true
+
+[sub_resource type="StyleBoxEmpty" id="style_disabled"]
+
+[sub_resource type="StyleBoxEmpty" id="style_focus"]
+
+[sub_resource type="StyleBoxFlat" id="style_panel"]
+bg_color = Color(0.1, 0.1, 0.1, 0.85)
+border_color = Color(0.4, 0.4, 0.4, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+draw_center = true
+
+[sub_resource type="StyleBoxFlat" id="style_grabber"]
+bg_color = Color(0.7, 0.7, 0.4, 1)
+border_width_left = 0
+border_width_right = 0
+border_width_top = 0
+border_width_bottom = 0
+draw_center = true
+
+[sub_resource type="StyleBoxFlat" id="style_slider"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+border_color = Color(0.3, 0.3, 0.3, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_width_bottom = 1
+draw_center = true

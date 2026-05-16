@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "gabe"
+npc_name = "Gabe"
+gender = "male"
+birthday_day = 11
+birthday_season = "spring"
+home_zone = "forest"
+work_job_id = ""
+sprite_set = "gabe"
+personality_tags = Array[String](["gruff", "thoughtful"])
+loved_gifts = Array[String](["wood", "fiber"])
+liked_gifts = Array[String](["pumpkin"])
+disliked_gifts = Array[String](["painting_abstract"])
+hated_gifts = Array[String]([])
+dialogue_id = "gabe_dialogue"
+schedule_id = "gabe_schedule"
+marriageable = true
+compatibility = {}

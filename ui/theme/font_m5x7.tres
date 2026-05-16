@@ -1,0 +1,10 @@
+[gd_resource type="FontVariation" load_steps=3 format=3 uid="uid://b6cpj4g5ohkmo"]
+[ext_resource type="FontFile" path="res://assets/fonts/m5x7.ttf" id="1"]
+
+[resource]
+base_font = ExtResource("1")
+variation_embolden = 0.0
+variation_face_index = 0
+variation_transform = Transform2D(1, 0, 0, 1, 0, 0)
+variation_spacing_glyph = 1
+variation_spacing_space = 1

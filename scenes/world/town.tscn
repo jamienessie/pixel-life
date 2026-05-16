@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://town00001"]
+
+[ext_resource type="Script" path="res://scenes/world/zone_setup.gd" id="zone_script"]
+[ext_resource type="Script" path="res://scripts/interactables/zone_transition.gd" id="zone_transition"]
+
+[sub_resource type="RectangleShape2D" id="Rect_to_farm"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_to_forest"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="Rect_to_beach"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="Rect_to_school"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="Rect_to_library"]
+size = Vector2(24, 24)
+
+[node name="Town" type="Node2D"]
+script = ExtResource("zone_script")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Decoration" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Collision" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Roof" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="spawn_default" type="Marker2D" parent="Spawns"]
+position = Vector2(240, 240)
+
+[node name="spawn_from_farm" type="Marker2D" parent="Spawns"]
+position = Vector2(240, 448)
+
+[node name="spawn_from_forest" type="Marker2D" parent="Spawns"]
+position = Vector2(16, 240)
+
+[node name="spawn_from_beach" type="Marker2D" parent="Spawns"]
+position = Vector2(464, 240)
+
+[node name="spawn_from_school" type="Marker2D" parent="Spawns"]
+position = Vector2(160, 320)
+
+[node name="spawn_from_library" type="Marker2D" parent="Spawns"]
+position = Vector2(320, 320)
+
+[node name="ZoneTransitions" type="Node2D" parent="."]
+
+[node name="to_farm" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(240, 464)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "farm"
+spawn_marker = "spawn_from_farm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_farm"]
+shape = SubResource("Rect_to_farm")
+
+[node name="to_forest" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(16, 240)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "forest"
+spawn_marker = "spawn_from_forest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_forest"]
+shape = SubResource("Rect_to_forest")
+
+[node name="to_beach" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(464, 240)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "beach"
+spawn_marker = "spawn_from_beach"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_beach"]
+shape = SubResource("Rect_to_beach")
+
+[node name="to_school" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(160, 304)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "school"
+spawn_marker = "spawn_from_town"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_school"]
+shape = SubResource("Rect_to_school")
+
+[node name="SchoolSign" type="Label" parent="ZoneTransitions/to_school"]
+offset_left = -24.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = -10.0
+text = "School"
+horizontal_alignment = 1
+
+[node name="to_library" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(320, 304)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "library"
+spawn_marker = "spawn_from_town"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_library"]
+shape = SubResource("Rect_to_library")
+
+[node name="LibrarySign" type="Label" parent="ZoneTransitions/to_library"]
+offset_left = -24.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = -10.0
+text = "Library"
+horizontal_alignment = 1
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ZoneCamera" type="Camera2D" parent="."]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 480

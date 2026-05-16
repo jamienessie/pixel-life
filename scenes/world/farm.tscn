@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://farm00001"]
+
+[ext_resource type="Script" path="res://scenes/world/farm_setup.gd" id="farm_script"]
+[ext_resource type="Script" path="res://scripts/interactables/zone_transition.gd" id="zone_transition"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/crop_tile.tscn" id="crop_tile_scene"]
+
+[sub_resource type="RectangleShape2D" id="Rect_farm_town"]
+size = Vector2(48, 16)
+
+[node name="Farm" type="Node2D"]
+script = ExtResource("farm_script")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Decoration" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Collision" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Roof" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="spawn_default" type="Marker2D" parent="Spawns"]
+position = Vector2(192, 32)
+
+[node name="spawn_from_town" type="Marker2D" parent="Spawns"]
+position = Vector2(192, 32)
+
+[node name="ZoneTransitions" type="Node2D" parent="."]
+
+[node name="to_town" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(192, 16)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "town"
+spawn_marker = "spawn_from_farm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_town"]
+shape = SubResource("Rect_farm_town")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="CropTile_0" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(96, 96)
+zone_id = "farm"
+tile_index = 0
+
+[node name="CropTile_1" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(120, 96)
+zone_id = "farm"
+tile_index = 1
+
+[node name="CropTile_2" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(144, 96)
+zone_id = "farm"
+tile_index = 2
+
+[node name="CropTile_3" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(168, 96)
+zone_id = "farm"
+tile_index = 3
+
+[node name="CropTile_4" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(96, 120)
+zone_id = "farm"
+tile_index = 4
+
+[node name="CropTile_5" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(120, 120)
+zone_id = "farm"
+tile_index = 5
+
+[node name="CropTile_6" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(144, 120)
+zone_id = "farm"
+tile_index = 6
+
+[node name="CropTile_7" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(168, 120)
+zone_id = "farm"
+tile_index = 7
+
+[node name="CropTile_8" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(96, 144)
+zone_id = "farm"
+tile_index = 8
+
+[node name="CropTile_9" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(120, 144)
+zone_id = "farm"
+tile_index = 9
+
+[node name="CropTile_10" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(144, 144)
+zone_id = "farm"
+tile_index = 10
+
+[node name="CropTile_11" parent="Interactables" instance=ExtResource("crop_tile_scene")]
+position = Vector2(168, 144)
+zone_id = "farm"
+tile_index = 11
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ZoneCamera" type="Camera2D" parent="."]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 384
+limit_bottom = 384

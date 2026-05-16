@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AchievementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/achievement_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "succession_to_child"
+name = "Legacy"
+description = "Continue your line by playing as your adult child."
+hidden = false
+trigger_event = "playable_character_switched"
+trigger_condition = {}
+reward_money = 500

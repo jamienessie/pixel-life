@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "mr_oak"
+npc_name = "Mr. Oak"
+gender = "male"
+birthday_day = 4
+birthday_season = "autumn"
+home_zone = "school"
+work_job_id = ""
+sprite_set = "mr_oak"
+personality_tags = Array[String](["scholarly", "patient"])
+loved_gifts = Array[String](["wheat"])
+liked_gifts = Array[String](["wood"])
+disliked_gifts = Array[String](["fish"])
+hated_gifts = Array[String]([])
+dialogue_id = "mr_oak_dialogue"
+schedule_id = "mr_oak_schedule"
+marriageable = false
+compatibility = {}

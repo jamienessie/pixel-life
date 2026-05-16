@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id="fishing_rod"
+name="Fishing Rod"
+description="Used for fishing at the beach or river."
+category="tool"
+stack_size=1
+base_buy_price=250
+base_sell_price=100
+tags=["tool", "fishing"]
+effects={}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/recipe_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "potato_chips"
+name = "Potato Chips"
+inputs = {"potato": 2}
+outputs = {"potato_chips": 1}
+station = "kitchen"
+time_minutes = 20
+description = "Pre-emptive snack."

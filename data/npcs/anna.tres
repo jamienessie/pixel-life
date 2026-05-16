@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "anna"
+npc_name = "Anna"
+gender = "female"
+birthday_day = 14
+birthday_season = "spring"
+home_zone = "town"
+work_job_id = ""
+sprite_set = "anna"
+personality_tags = Array[String](["friendly", "talkative"])
+loved_gifts = Array[String](["tomato", "corn"])
+liked_gifts = Array[String](["fiber", "wood"])
+disliked_gifts = Array[String](["stone"])
+hated_gifts = Array[String]([])
+dialogue_id = "anna_dialogue"
+schedule_id = "anna_schedule"
+marriageable = true
+compatibility = {}

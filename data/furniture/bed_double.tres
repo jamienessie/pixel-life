@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_bed002"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "bed_double"
+item_id = "bed_double"
+display_name = "Double Bed"
+footprint = Vector2i(2, 2)
+provides_action = "sleep"
+cost = 800
+category = "bedroom"
+min_house_tier = 2
+effects = {"sleep_energy_bonus": 25, "hygiene_bonus_on_sleep": 10}
+description = "A comfortable double bed. Refills extra energy and a bit of hygiene on sleep."

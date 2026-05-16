@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_workbench"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "workbench"
+item_id = "workbench"
+display_name = "Workbench"
+footprint = Vector2i(2, 1)
+provides_action = "craft"
+cost = 500
+category = "crafting"
+min_house_tier = 2
+effects = {"farmer_perf_bonus": 0.10}
+description = "Improves your tools. Boosts Farmer career performance by +10%."

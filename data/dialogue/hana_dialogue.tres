@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "hana_dialogue"
+nodes = {
+	"greet": {
+		"text": "Hey hey hey! Did you see Anna's new sign? It's PINK!",
+		"choices": [
+			{"text": "How's the shop today?", "next": "shop"},
+			{"text": "What do you do for fun?", "next": "fun"},
+			{"text": "You're really sweet, you know.", "next": "flirt", "relationship_stage_required": "friend"},
+			{"text": "Dance with me at the next festival?", "next": "date", "relationship_stage_required": "dating"},
+			{"text": "Welcome home, sunshine.", "next": "spouse_chat", "relationship_stage_required": "married"},
+			{"text": "Bye!", "next": "farewell"}
+		]
+	},
+	"shop": {
+		"text": "Busy! I sold three pumpkins to one person. Like, what are you going to DO with three pumpkins??",
+		"choices": [{"text": "Bye!", "next": "farewell"}]
+	},
+	"fun": {
+		"text": "Everything. Mostly running. And also pretending to read books while running.",
+		"choices": [{"text": "Bye!", "next": "farewell"}]
+	},
+	"flirt": {
+		"text": "Stop it. STOP. Okay, say it again.",
+		"choices": [{"text": "Bye!", "next": "farewell"}]
+	},
+	"date": {
+		"text": "YES! I've been practicing. In my kitchen. With a broom. It went poorly.",
+		"choices": [{"text": "Bye!", "next": "farewell"}]
+	},
+	"spouse_chat": {
+		"text": "I missed you for like SIX HOURS. That's basically a year.",
+		"choices": [{"text": "I missed you more.", "next": "farewell"}]
+	},
+	"farewell": {
+		"text": "Byeeee!",
+		"choices": []
+	}
+}

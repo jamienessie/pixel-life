@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://int_tier3_01"]
+
+[ext_resource path="res://scenes/world/interiors/interior_setup.gd" id="int_script"]
+[ext_resource path="res://scenes/world/interiors/interior_tileset.tres" id="int_tileset"]
+[ext_resource path="res://scripts/interactables/zone_transition.gd" id="zone_transition"]
+
+[node name="InteriorTier3" type="Node2D"]
+script = ExtResource("int_script")
+zone_id = "interior_tier3"
+map_w = 20
+map_h = 14
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="TileMapLayers"]
+tile_set = ExtResource("int_tileset")
+
+[node name="Decoration" type="TileMapLayer" parent="TileMapLayers"]
+tile_set = ExtResource("int_tileset")
+
+[node name="Collision" type="TileMapLayer" parent="TileMapLayers"]
+tile_set = ExtResource("int_tileset")
+physics_layer_0_collision_layer = 1
+
+[node name="Roof" type="TileMapLayer" parent="TileMapLayers"]
+tile_set = ExtResource("int_tileset")
+y_sort_enabled = true
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="spawn_default" type="Marker2D" parent="Spawns"]
+position = Vector2(160, 208)
+
+[node name="spawn_from_door" type="Marker2D" parent="Spawns"]
+position = Vector2(160, 208)
+
+[node name="ZoneTransitions" type="Node2D" parent="."]
+
+[node name="to_town" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(160, 216)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "town"
+spawn_marker = "spawn_from_house"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_town"]
+shape = SubResource("Rect_int_exit3")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ZoneCamera" type="Camera2D" parent="."]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 320
+limit_bottom = 224
+
+[sub_resource type="RectangleShape2D" id="Rect_int_exit3"]
+size = Vector2(32, 16)

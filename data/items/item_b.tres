@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id="item_b"
+name="Item B"
+description="Test item B for inventory tests"
+category="misc"
+stack_size=999
+base_buy_price=5
+base_sell_price=2
+tags=["test"]
+effects={}

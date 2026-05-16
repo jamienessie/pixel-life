@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "farah"
+npc_name = "Farah"
+gender = "female"
+birthday_day = 19
+birthday_season = "autumn"
+home_zone = "town"
+work_job_id = "painter"
+sprite_set = "farah"
+personality_tags = Array[String](["artistic", "dreamy"])
+loved_gifts = Array[String](["painting_landscape", "painting_seascape"])
+liked_gifts = Array[String](["fiber"])
+disliked_gifts = Array[String](["stone"])
+hated_gifts = Array[String]([])
+dialogue_id = "farah_dialogue"
+schedule_id = "farah_schedule"
+marriageable = true
+compatibility = {}

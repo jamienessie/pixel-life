@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "elena_dialogue"
+nodes = {
+	"greet": {
+		"text": "I think I saw something move under the waves at dawn. Probably a tuna. Probably.",
+		"choices": [
+			{"text": "Tell me about the legendary pike.", "next": "pike"},
+			{"text": "What's the best bait?", "next": "bait"},
+			{"text": "Sail with me sometime?", "next": "flirt", "relationship_stage_required": "friend"},
+			{"text": "Want to go fishing tonight?", "next": "date", "relationship_stage_required": "dating"},
+			{"text": "How was the water today, love?", "next": "spouse_chat", "relationship_stage_required": "married"},
+			{"text": "Bye.", "next": "farewell"}
+		]
+	},
+	"pike": {
+		"text": "Winter, late hours, when the bay freezes most quiet. He's there. I've felt his pull.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"bait": {
+		"text": "Sardine for bass. Bass for tuna. Patience for pike.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"flirt": {
+		"text": "I'd take you, but if you talk while I cast I'll throw you in.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"date": {
+		"text": "Bring two rods and one blanket. We'll figure out the rest.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"spouse_chat": {
+		"text": "Cold. Beautiful. I missed you.",
+		"choices": [{"text": "Me too.", "next": "farewell"}]
+	},
+	"farewell": {
+		"text": "Tides turning.",
+		"choices": []
+	}
+}

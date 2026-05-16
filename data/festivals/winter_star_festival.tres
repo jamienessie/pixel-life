@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FestivalData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/festival_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "winter_star_festival"
+name = "Winter Star Festival"
+season = "winter"
+day_of_season = 14
+zone_id = "forest"
+blurb = "Lanterns hung in the pines. Bring a gift, leave with a memory."
+npc_overrides = {}

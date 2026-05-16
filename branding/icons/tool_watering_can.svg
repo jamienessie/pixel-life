@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Watering Can — 16×16 in-game icon -->
+  <rect width="16" height="16" fill="transparent"/>
+  <!-- Category: tools = pebble (#B7AB98) -->
+  <rect x="0" y="14" width="2" height="2" fill="#B7AB98"/>
+  <!-- Can body -->
+  <rect x="2" y="6" width="9" height="7" fill="#A8DADC"/>
+  <rect x="3" y="5" width="7" height="9" fill="#A8DADC"/>
+  <!-- Can outline -->
+  <rect x="2" y="5" width="9" height="1" fill="#3A2A1B"/>
+  <rect x="2" y="13" width="9" height="1" fill="#3A2A1B"/>
+  <rect x="1" y="6" width="1" height="7" fill="#3A2A1B"/>
+  <rect x="11" y="6" width="1" height="7" fill="#3A2A1B"/>
+  <rect x="3" y="4" width="7" height="1" fill="#3A2A1B"/>
+  <rect x="3" y="14" width="7" height="1" fill="#3A2A1B"/>
+  <!-- Spout -->
+  <rect x="11" y="8" width="3" height="2" fill="#A8DADC"/>
+  <rect x="13" y="7" width="2" height="4" fill="#A8DADC"/>
+  <rect x="11" y="7" width="2" height="1" fill="#3A2A1B"/>
+  <rect x="11" y="10" width="2" height="1" fill="#3A2A1B"/>
+  <rect x="13" y="6" width="2" height="1" fill="#3A2A1B"/>
+  <rect x="15" y="7" width="1" height="4" fill="#3A2A1B"/>
+  <rect x="13" y="11" width="2" height="1" fill="#3A2A1B"/>
+  <!-- Handle -->
+  <rect x="3" y="2" width="6" height="2" fill="#A8DADC"/>
+  <rect x="3" y="1" width="6" height="1" fill="#3A2A1B"/>
+  <rect x="3" y="3" width="6" height="1" fill="#3A2A1B"/>
+  <rect x="2" y="2" width="1" height="2" fill="#3A2A1B"/>
+  <rect x="9" y="2" width="1" height="2" fill="#3A2A1B"/>
+  <!-- Water drops -->
+  <rect x="13" y="12" width="1" height="2" fill="#A8DADC"/>
+  <rect x="11" y="11" width="1" height="2" fill="#A8DADC"/>
+  <!-- Highlight -->
+  <rect x="3" y="6" width="3" height="1" fill="#EAE0CC"/>
+  <!-- Shadow -->
+  <rect x="8" y="12" width="3" height="1" fill="#6D5A7E" opacity="0.4"/>
+</svg>

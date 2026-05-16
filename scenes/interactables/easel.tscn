@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://easel_iact_v1"]
+
+[ext_resource type="Script" path="res://scripts/interactables/easel.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(16, 16)
+
+[node name="Easel" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Marker" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.65, 0.35, 0.15, 1)

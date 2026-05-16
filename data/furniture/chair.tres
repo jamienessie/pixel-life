@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_chair01"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "chair"
+item_id = "chair"
+display_name = "Chair"
+footprint = Vector2i(1, 1)
+provides_action = ""
+cost = 80
+category = "living"
+min_house_tier = 1
+effects = {"fun_decay_reduction": 0.5}
+description = "Reduces Fun decay rate by 0.5/hour while at home."

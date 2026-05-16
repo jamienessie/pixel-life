@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ivy"
+npc_name = "Ivy"
+gender = "female"
+birthday_day = 2
+birthday_season = "autumn"
+home_zone = "library"
+work_job_id = ""
+sprite_set = "ivy"
+personality_tags = Array[String](["scholarly", "quiet"])
+loved_gifts = Array[String](["painting_portrait"])
+liked_gifts = Array[String](["wheat"])
+disliked_gifts = Array[String](["fish"])
+hated_gifts = Array[String]([])
+dialogue_id = "ivy_dialogue"
+schedule_id = "ivy_schedule"
+marriageable = false
+compatibility = {}

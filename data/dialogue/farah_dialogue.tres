@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "farah_dialogue"
+nodes = {
+	"greet": {
+		"text": "Oh, you. I was just painting clouds. They keep moving though.",
+		"choices": [
+			{"text": "What are you working on?", "next": "working"},
+			{"text": "Will you show me your sketchbook?", "next": "sketch", "relationship_stage_required": "friend"},
+			{"text": "Could I model for you?", "next": "model", "relationship_stage_required": "close_friend"},
+			{"text": "Run away with me to the coast.", "next": "date", "relationship_stage_required": "dating"},
+			{"text": "Did you sleep well, dearest?", "next": "spouse_chat", "relationship_stage_required": "married"},
+			{"text": "Bye.", "next": "farewell"}
+		]
+	},
+	"working": {
+		"text": "A seascape, I think. Or maybe a landscape that misses the sea.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"sketch": {
+		"text": "Only if you promise not to flip past the page about the pumpkin incident.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"model": {
+		"text": "Don't move. Don't breathe. Don't… okay, breathe a little.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"date": {
+		"text": "Pack the easel. Bring the wine. I'll bring the courage.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"spouse_chat": {
+		"text": "I dreamt in blues again. Have you noticed how the kitchen is always too yellow?",
+		"choices": [{"text": "Always.", "next": "farewell"}]
+	},
+	"farewell": {
+		"text": "Goodbye, light.",
+		"choices": []
+	}
+}

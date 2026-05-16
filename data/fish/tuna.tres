@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/fish_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "tuna"
+name = "Tuna"
+item_id = "tuna"
+seasons = Array[String](["summer"])
+time_window = Vector2i(8, 16)
+rarity_weight = 30
+min_sell_price = 180
+max_sell_price = 280
+difficulty = 4

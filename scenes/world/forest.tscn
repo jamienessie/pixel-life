@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://forest00001"]
+
+[ext_resource type="Script" path="res://scenes/world/forest_setup.gd" id="forest_script"]
+[ext_resource type="Script" path="res://scripts/interactables/zone_transition.gd" id="zone_transition"]
+
+[sub_resource type="RectangleShape2D" id="Rect_forest_town"]
+size = Vector2(16, 48)
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("forest_script")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Decoration" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Collision" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Roof" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="spawn_default" type="Marker2D" parent="Spawns"]
+position = Vector2(368, 192)
+
+[node name="spawn_from_town" type="Marker2D" parent="Spawns"]
+position = Vector2(368, 192)
+
+[node name="ZoneTransitions" type="Node2D" parent="."]
+
+[node name="to_town" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(368, 192)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "town"
+spawn_marker = "spawn_from_forest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_town"]
+shape = SubResource("Rect_forest_town")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ZoneCamera" type="Camera2D" parent="."]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 384
+limit_bottom = 384

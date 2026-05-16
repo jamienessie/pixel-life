@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+script = ExtResource("1")
+id = "sardine"
+name = "Sardine"
+description = "A small, common fish."
+category = "fish"
+stack_size = 99
+base_buy_price = 0
+base_sell_price = 15
+tags = ["fish", "food"]
+effects = {"hunger": 5}

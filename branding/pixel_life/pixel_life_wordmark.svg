@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 128" role="img" aria-label="Pixel Life wordmark">
+  <!-- Pixel Life horizontal wordmark.
+       Sunny brand: Archivo Black display weight, ink-on-cream,
+       coral accent dot. Designed at 640x128 reference size; scales
+       cleanly for splash, in-app branding moments, marketing chrome.
+       Type is rendered as text (not outlined) so Archivo Black must
+       be loaded at use site. Engineering: if loading the font at
+       splash is impractical, export an outlined PNG via the
+       pwa-assets generator. -->
+
+  <!-- Cream paper field, hard square (Sunny: radius 0) -->
+  <rect width="640" height="128" fill="#fff8e6"/>
+
+  <!-- Ink slab border 4px (matches Sunny 3px UI border, scaled) -->
+  <rect x="2" y="2" width="636" height="124" fill="none" stroke="#111111" stroke-width="4"/>
+
+  <!-- Wordmark text. Letter-spacing -0.02em matches Sunny h1/h2/h3. -->
+  <text x="32" y="92"
+        font-family="'Archivo Black', system-ui, -apple-system, sans-serif"
+        font-size="72"
+        letter-spacing="-1.44"
+        fill="#111111">PIXEL LIFE</text>
+
+  <!-- Coral accent: a single block in line with the type baseline,
+       sits as a "period" punctuation after the wordmark. -->
+  <rect x="560" y="80" width="20" height="20" fill="#ff5d7a"/>
+</svg>

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_table01"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "table_small"
+item_id = "table_small"
+display_name = "Small Table"
+footprint = Vector2i(1, 1)
+provides_action = ""
+cost = 150
+category = "living"
+min_house_tier = 1
+effects = {"hunger_decay_reduction": 0.5}
+description = "A place to eat properly. Reduces Hunger decay rate by 0.5/hour."

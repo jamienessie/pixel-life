@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+script = ExtResource("1")
+id = "hoe"
+name = "Hoe"
+description = "Tills soil so seeds can take root."
+category = "tool"
+stack_size = 1
+base_buy_price = 80
+base_sell_price = 20
+tags = ["tool", "farming"]
+effects = {}

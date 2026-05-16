@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://beach00001"]
+
+[ext_resource type="Script" path="res://scenes/world/beach_setup.gd" id="beach_script"]
+[ext_resource type="Script" path="res://scripts/interactables/zone_transition.gd" id="zone_transition"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/fishing_spot.tscn" id="fishing_spot_scene"]
+
+[sub_resource type="RectangleShape2D" id="Rect_beach_town"]
+size = Vector2(16, 48)
+
+[node name="Beach" type="Node2D"]
+script = ExtResource("beach_script")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Decoration" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Collision" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Roof" type="TileMap" parent="TileMapLayers"]
+format = 2
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="spawn_default" type="Marker2D" parent="Spawns"]
+position = Vector2(16, 192)
+
+[node name="spawn_from_town" type="Marker2D" parent="Spawns"]
+position = Vector2(16, 192)
+
+[node name="ZoneTransitions" type="Node2D" parent="."]
+
+[node name="to_town" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(16, 192)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("zone_transition")
+target_zone = "town"
+spawn_marker = "spawn_from_beach"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/to_town"]
+shape = SubResource("Rect_beach_town")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="FishingSpot_A" parent="Interactables" instance=ExtResource("fishing_spot_scene")]
+position = Vector2(96, 240)
+
+[node name="FishingSpot_B" parent="Interactables" instance=ExtResource("fishing_spot_scene")]
+position = Vector2(160, 256)
+
+[node name="FishingSpot_C" parent="Interactables" instance=ExtResource("fishing_spot_scene")]
+position = Vector2(224, 248)
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ZoneCamera" type="Camera2D" parent="."]
+enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 384
+limit_bottom = 384

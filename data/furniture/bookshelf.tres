@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_bookshelf"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "bookshelf"
+item_id = "bookshelf"
+display_name = "Bookshelf"
+footprint = Vector2i(1, 1)
+provides_action = "study"
+cost = 600
+category = "study"
+min_house_tier = 1
+effects = {"study_speed_multiplier": 1.5, "study_unlocks": 1}
+description = "A study tool. Unlocks the Study action and accelerates degree progress by 50%."

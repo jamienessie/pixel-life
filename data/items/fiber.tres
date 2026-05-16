@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id="fiber"
+name="Fiber"
+description="Wild plant fiber. Can be foraged just about anywhere."
+category="foraged"
+stack_size=99
+base_buy_price=5
+base_sell_price=2
+tags=["foraged", "material"]
+effects={}

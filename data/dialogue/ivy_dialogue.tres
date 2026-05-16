@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ivy_dialogue"
+nodes = {
+	"greet": {
+		"text": "Welcome to the library. Studying here gets you a diploma faster than the bookshelf at home, but the chair is meaner.",
+		"choices": [
+			{"text": "Study for the morning.", "next": "studied", "action": "library.study"},
+			{"text": "Cook something at the station.", "next": "cooked", "action": "library.craft"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"studied": {
+		"text": "Good progress. Hydrate. The brain is mostly noodle water.",
+		"choices": [{"text": "Goodbye.", "next": "farewell"}]
+	},
+	"cooked": {
+		"text": "Smells good. Don't burn the books.",
+		"choices": [{"text": "Goodbye.", "next": "farewell"}]
+	},
+	"farewell": {
+		"text": "Read well.",
+		"choices": []
+	}
+}

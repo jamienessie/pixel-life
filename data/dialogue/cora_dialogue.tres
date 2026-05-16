@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cora_dialogue"
+nodes = {
+	"greet": {
+		"text": "Oh! Hi. I didn't see you there. I'm Cora.",
+		"choices": [
+			{"text": "Nice to meet you, Cora!", "next": "meet"},
+			{"text": "What are you doing?", "next": "doing"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"meet": {
+		"text": "I spend most of my time by the beach. It's quiet there. I like quiet.",
+		"choices": [
+			{"text": "The beach is lovely.", "next": "beach"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"doing": {
+		"text": "Just... walking. Thinking. The ocean helps me think clearly.",
+		"choices": [
+			{"text": "I understand that.", "next": "understand"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"beach": {
+		"text": "It is. I collect shells and driftwood. Sometimes I fish when I feel like it.",
+		"choices": [
+			{"text": "Maybe I'll see you there!", "next": "see_you"},
+			{"text": "Goodbye.", "next": "farewell"}
+		]
+	},
+	"understand": {
+		"text": "You're easy to talk to. Most people here talk too much.",
+		"choices": [
+			{"text": "I'll let you get back to your walk. Bye!", "next": "farewell"}
+		]
+	},
+	"see_you": {
+		"text": "I'd like that. The beach is nice with company sometimes.",
+		"choices": [
+			{"text": "See you around, Cora!", "next": "farewell"}
+		]
+	},
+	"farewell": {
+		"text": "Bye. Come find me at the beach sometime.",
+		"choices": []
+	}
+}

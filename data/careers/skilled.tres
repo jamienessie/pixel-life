@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CareerTrackData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/career_track_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "skilled"
+name = "Skilled"
+levels = [{ "title": "Intern", "pay_multiplier": 1.0, "shifts_required": 0, "performance_required": 0.0 }, { "title": "Resident", "pay_multiplier": 1.6, "shifts_required": 8, "performance_required": 0.6 }, { "title": "Senior", "pay_multiplier": 2.5, "shifts_required": 20, "performance_required": 0.75 }]

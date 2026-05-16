@@ -1,0 +1,26 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+*.import
+*.translation
+export_presets.cfg.bak
+
+# Imported translations (should be imported from source)
+*.translation
+
+# Mono-specific
+mono_crash.*.json
+
+# System files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+*.swo
+*~
+~\$*
+
+# Build logs
+build/*.log
+build/*.err

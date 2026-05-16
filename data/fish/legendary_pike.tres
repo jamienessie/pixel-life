@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/fish_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "legendary_pike"
+name = "Legendary Pike"
+item_id = "legendary_pike"
+seasons = Array[String](["winter"])
+time_window = Vector2i(22, 24)
+rarity_weight = 5
+min_sell_price = 800
+max_sell_price = 1500
+difficulty = 5

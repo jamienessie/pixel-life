@@ -1,0 +1,18 @@
+GIMP Palette
+Name: Pixel Town v1
+Columns: 4
+# Pixel Town brand palette v1.0 — Mika Solberg, 2026-05-15
+# 12 colors. See branding/BRAND_BRIEF.md §5 for usage rules.
+# Compatible with GIMP, Aseprite, Krita, Pixelorama.
+ 46 110 120	brand_teal
+248 237 212	brand_cream
+245 194 107	sun_gold
+224 122  95	tomato
+106 153  78	forest
+168 218 220	sky
+109  90 126	dusk_plum
+ 58  42  27	deep_brown
+183 171 152	pebble
+234 224 204	bone
+200  70  48	cherry
+218 210 188	mist

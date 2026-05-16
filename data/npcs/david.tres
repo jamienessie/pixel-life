@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "david"
+npc_name = "David"
+gender = "male"
+birthday_day = 22
+birthday_season = "summer"
+home_zone = "farm"
+work_job_id = "farmer"
+sprite_set = "david"
+personality_tags = Array[String](["hardworking", "quiet"])
+loved_gifts = Array[String](["wheat", "potato"])
+liked_gifts = Array[String](["tomato", "corn"])
+disliked_gifts = Array[String](["sardine"])
+hated_gifts = Array[String](["legendary_pike"])
+dialogue_id = "david_dialogue"
+schedule_id = "david_schedule"
+marriageable = true
+compatibility = {}

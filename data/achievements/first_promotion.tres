@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AchievementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/achievement_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "first_promotion"
+name = "Climbing the Ladder"
+description = "Earn your first promotion."
+hidden = false
+trigger_event = "job_level_up"
+trigger_condition = {}
+reward_money = 100

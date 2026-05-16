@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AchievementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/achievement_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "lived_to_30"
+name = "Quarter Life"
+description = "Reach age 30."
+hidden = false
+trigger_event = "year_passed"
+trigger_condition = {"age": 30}
+reward_money = 50

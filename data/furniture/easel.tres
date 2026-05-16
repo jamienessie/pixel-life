@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_easel001"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "easel"
+item_id = "easel"
+display_name = "Easel"
+footprint = Vector2i(1, 1)
+provides_action = "paint"
+cost = 400
+category = "creative"
+min_house_tier = 1
+effects = {"painter_perf_bonus": 0.15, "fun_bonus_per_hour": 0.5}
+description = "Boosts Painter career performance by +15% and gives small fun lift over time."

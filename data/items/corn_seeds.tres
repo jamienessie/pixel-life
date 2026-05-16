@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id="corn_seeds"
+name="Corn Seeds"
+description="Plant these in summer or autumn to grow corn."
+category="seeds"
+stack_size=99
+base_buy_price=25
+base_sell_price=5
+tags=["seeds", "summer", "autumn"]
+effects={}

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CareerTrackData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/career_track_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "service"
+name = "Service"
+levels = [{ "title": "Cashier", "pay_multiplier": 1.0, "shifts_required": 0, "performance_required": 0.0 }, { "title": "Shift Lead", "pay_multiplier": 1.4, "shifts_required": 5, "performance_required": 0.55 }, { "title": "Manager", "pay_multiplier": 2.0, "shifts_required": 15, "performance_required": 0.7 }]

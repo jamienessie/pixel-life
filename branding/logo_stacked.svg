@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 21" shape-rendering="crispEdges">
+  <!-- Pixel Town stacked wordmark "PIXEL / TOWN"
+       Top row "PIXEL" (27px wide), bottom row "TOWN" (23px wide, centered offset 2px)
+       1px gap between rows. 3px padding all around = 33x21 canvas.
+       Fill: brand_cream (#F8EDD4) on brand_teal (#2E6E78) background -->
+  <rect width="33" height="21" fill="#2E6E78"/>
+  <g fill="#F8EDD4">
+    <!-- PIXEL row at (3,3) -->
+    <g transform="translate(3,3)">
+      <path d="M0,0 h4 v1 h-4 Z M0,1 h1 v2 h-1 Z M4,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v3 h-1 Z"/>
+    </g>
+    <g transform="translate(9,3)">
+      <path d="M0,0 h3 v1 h-3 Z M1,1 h1 v5 h-1 Z M0,6 h3 v1 h-3 Z"/>
+    </g>
+    <g transform="translate(13,3)">
+      <path d="M0,0 h1 v1 h-1 Z M4,0 h1 v1 h-1 Z M1,1 h1 v2 h-1 Z M3,1 h1 v2 h-1 Z M2,3 h1 v1 h-1 Z M1,4 h1 v2 h-1 Z M3,4 h1 v2 h-1 Z M0,6 h1 v1 h-1 Z M4,6 h1 v1 h-1 Z"/>
+    </g>
+    <g transform="translate(19,3)">
+      <path d="M0,0 h5 v1 h-5 Z M0,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v2 h-1 Z M0,6 h5 v1 h-5 Z"/>
+    </g>
+    <g transform="translate(25,3)">
+      <path d="M0,0 h1 v6 h-1 Z M0,6 h5 v1 h-5 Z"/>
+    </g>
+    <!-- TOWN row at (5,11)  [centered: (27-23)/2 = 2px offset + 3px padding] -->
+    <g transform="translate(5,11)">
+      <path d="M0,0 h5 v1 h-5 Z M2,1 h1 v6 h-1 Z"/>
+    </g>
+    <g transform="translate(11,11)">
+      <path d="M1,0 h3 v1 h-3 Z M0,1 h1 v5 h-1 Z M4,1 h1 v5 h-1 Z M1,6 h3 v1 h-3 Z"/>
+    </g>
+    <g transform="translate(17,11)">
+      <path d="M0,0 h1 v4 h-1 Z M4,0 h1 v4 h-1 Z M0,4 h1 v1 h-1 Z M2,4 h1 v1 h-1 Z M4,4 h1 v1 h-1 Z M0,5 h2 v1 h-2 Z M3,5 h2 v1 h-2 Z M0,6 h1 v1 h-1 Z M4,6 h1 v1 h-1 Z"/>
+    </g>
+    <g transform="translate(23,11)">
+      <path d="M0,0 h1 v1 h-1 Z M4,0 h1 v1 h-1 Z M0,1 h2 v1 h-2 Z M4,1 h1 v1 h-1 Z M0,2 h1 v1 h-1 Z M2,2 h1 v1 h-1 Z M4,2 h1 v1 h-1 Z M0,3 h1 v1 h-1 Z M3,3 h2 v1 h-2 Z M0,4 h1 v3 h-1 Z M4,4 h1 v3 h-1 Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "gabe_dialogue"
+nodes = {
+	"greet": {
+		"text": "Hmph. Forest's quiet today. That's how I like it.",
+		"choices": [
+			{"text": "Found anything good?", "next": "forage"},
+			{"text": "Tell me a story.", "next": "story", "relationship_stage_required": "friend"},
+			{"text": "I missed you out here.", "next": "flirt", "relationship_stage_required": "close_friend"},
+			{"text": "Walk with me at sunset?", "next": "date", "relationship_stage_required": "dating"},
+			{"text": "Long day?", "next": "spouse_chat", "relationship_stage_required": "married"},
+			{"text": "Bye.", "next": "farewell"}
+		]
+	},
+	"forage": {
+		"text": "Mushrooms after rain. Wood when the sky's clear. Never both.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"story": {
+		"text": "There was a deer here once that wouldn't run. Looked at me for a full minute. Then walked off. Best conversation I had that month.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"flirt": {
+		"text": "Out of all the people in this town, you're the only one I don't mind.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"date": {
+		"text": "I'll bring two cups. You bring something warm. No talking. Promise me.",
+		"choices": [{"text": "Bye.", "next": "farewell"}]
+	},
+	"spouse_chat": {
+		"text": "Yes. But coming home to you makes it shorter.",
+		"choices": [{"text": "Always.", "next": "farewell"}]
+	},
+	"farewell": {
+		"text": "Walk carefully.",
+		"choices": []
+	}
+}

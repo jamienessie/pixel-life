@@ -1,0 +1,296 @@
+# Pixel Life — Godot 4 Life Simulator: Build Plan
+
+## Context
+
+**Greenfield project.** Working directory `C:\Users\wysoc\Desktop\Pixel Life` is empty. The user wants a top-down pixel-art life simulator inspired by Stardew Valley + The Sims: walk a town, hold a job, earn money, buy a house, date and marry an NPC, raise kids, age and die, then play as your adult child to continue the lineage.
+
+**Why this plan exists**: it will be handed to autonomous coding agents (Nessie) to implement. Every milestone, file path, signal name, and Resource schema is fixed up front so agents can pick up any milestone without ambiguity.
+
+**Locked decisions** (from clarification with user):
+- Engine: **Godot 4.x, GDScript**
+- Art: **Free asset packs** (LimeZu Modern Interiors + Exteriors as primary, Kenney/OGA fallback)
+- Save: **Single auto-save slot**
+- Time: **Stardew-style** — ~15 real min per in-game day, seasons, years, aging, death
+- Relationships: **Sims-lite** — date → marry → kids → playable child after death
+- World: **Town + Farm + Forest + Beach** (4 connected zones)
+- Careers: **All four categories** — Service, Skilled, Self-employed, Creative
+
+---
+
+## Top-level technical decisions
+
+| Decision | Choice | Why |
+|---|---|---|
+| Tile size | **16×16** | Matches LimeZu, Kenney, most OGA tilesets |
+| Display | 320×180 base, integer scale 4x | Crisp pixels, fits 1080p natively |
+| Save format | **Custom Godot Resource (.tres) + JSON sidecar** | Resource = typed/refactor-safe; JSON = debug + recovery |
+| Scene loading | **Manual zone swap under SceneRouter** with persistent player + UI in autoloads | Frees memory between zones; HUD/player survive transitions |
+| Data | **`resources/` defines classes, `data/` holds .tres content** | Adding new items = new .tres, no script changes |
+
+---
+
+## Project file layout
+
+```
+res://
+├── project.godot
+├── autoloads/                       # 14 singletons (see §Autoloads)
+├── scenes/
+│   ├── main/                        # boot, main_menu, character_creation
+│   ├── world/                       # town, farm, forest, beach + interiors/
+│   ├── actors/                      # player, npc, child
+│   ├── interactables/               # door, bed, workbench, easel, fishing_spot, crop_tile, ...
+│   └── effects/                     # transitions, FX
+├── ui/
+│   ├── hud/                         # clock, money, needs bars
+│   ├── menus/                       # inventory, relationship, career, build_buy, shop, dialogue, pause, sleep
+│   └── theme/                       # pixel_theme.tres + pixel font
+├── scripts/
+│   ├── actors/                      # player_controller, npc_controller, npc_schedule_runner
+│   ├── systems/                     # time/, needs/, inventory/, relationships/, jobs/, economy/, building/, dialogue/, save/, farming/
+│   ├── interactables/               # one .gd per scene above
+│   └── util/
+├── resources/                       # Custom Resource class definitions (class_name)
+├── data/                            # .tres instances: items/, crops/, jobs/, npcs/, dialogue/, schedules/, houses/, furniture/, recipes/
+├── assets/
+│   ├── sprites/                     # tilesets/, characters/, npcs/, items/
+│   ├── audio/                       # music/, sfx/
+│   ├── fonts/
+│   └── ui/
+└── tests/                           # GUT (Godot Unit Test) scripts
+```
+
+---
+
+## Autoloads (14 singletons)
+
+Register in `Project Settings → Autoload` in this order (load-order matters):
+
+1. **`EventBus`** — signal hub. No methods, only signals (see §Signals).
+2. **`GameState`** — holds active `CharacterProfile`, current zone, pause flag. Methods: `start_new_game`, `switch_active_character` (succession), `pause/resume`.
+3. **`TimeManager`** — drives clock. Constants: `MINUTES_PER_DAY=1440`, `DAYS_PER_SEASON=28`, `REAL_SECONDS_PER_GAME_MINUTE=0.625`. Methods: `pause_time/resume_time/set_time_scale/advance_to_next_morning/serialize/deserialize`.
+4. **`SaveManager`** — reads/writes `SavePayload`. `SAVE_PATH := "user://saves/slot0.tres"`, JSON sidecar at `slot0.json`. Methods: `save_now(reason)`, `load_slot()`, `has_save()`, `delete_save()`. Auto-saves on sleep, on quit (`NOTIFICATION_WM_CLOSE_REQUEST`), and on player death.
+5. **`EconomyManager`** — money, transactions. `get_money/add_money/try_spend/price_of/sell_value`.
+6. **`NeedsManager`** — Energy, Hunger, Hygiene, Social, Fun (0-100). Decays per `hour_passed`. `get/modify/apply_action_effects`.
+7. **`InventoryManager`** — 6×4 slot grid of `ItemStack`. `add/remove/count/move_slot/get_slot`.
+8. **`RelationshipManager`** — `npc_id → {value, stage, history}`. Stages: `stranger, acquaintance, friend, close_friend, dating, engaged, married, ex, widowed`. `modify/get_stage/try_advance_stage/propose_marriage`.
+9. **`JobManager`** — `current_job, career_level, performance_avg, fame`. `apply_for/start_shift/end_shift/try_promote/quit`.
+10. **`FamilyManager`** — aging, pregnancy, succession. Constants: `LIFE_EXPECTANCY_MIN=70`, `LIFE_EXPECTANCY_MAX=90`, `PREGNANCY_DAYS=14`, `STAGE_AGE={baby:0, child:5, teen:13, adult:18}`. `try_conceive/tick_year/age_actor/try_die/move_out_adult_child/succeed_to`.
+11. **`DialogueManager`** — runs `DialogueData` trees. Pauses time during dialogue. `start/choose/end`.
+12. **`AudioManager`** — music bus per zone (day/night variants), SFX pool. Crossfades on `zone_changed`.
+13. **`SceneRouter`** — owns the persistent UI CanvasLayer and player node. `goto_zone(zone_id, spawn_marker)`: fade → free old zone → instance new → reparent player at marker → fade in → emit `zone_changed`.
+14. **`InputActions`** — input action name constants (`MOVE_UP`, `INTERACT`, etc.) to prevent typos.
+
+---
+
+## Signals (all on `EventBus`)
+
+```
+minute_passed(minute), hour_passed(hour), day_passed(day, season, year),
+season_changed(season), year_passed(year)
+money_changed(total, delta)
+need_changed(need, value), need_critical(need)
+inventory_changed, item_acquired(item_id, qty)
+relationship_changed(npc_id, value, stage), marriage_completed(npc_id)
+dialogue_started(npc_id), dialogue_ended(npc_id)
+job_assigned(job_id), shift_started, shift_ended(payout, performance)
+house_upgraded(tier)
+player_died(cause), child_born(child_id), child_aged(child_id, stage),
+playable_character_switched(new_actor_id)
+zone_changed(zone_id)
+save_requested, save_completed, load_completed
+sleep_requested, sleep_completed
+```
+
+---
+
+## Resource classes (in `resources/`)
+
+All `extends Resource` with `class_name`:
+
+- **`ItemData`** — id, name, description, icon, category, stack_size, base_buy_price, base_sell_price, tags[], effects{}
+- **`CropData`** — id, seed_item, harvest_item, growth_stages, days_per_stage, seasons[], regrow, regrow_days
+- **`JobData`** — id, name, category, shift_hours (Vector2i), shift_days[], base_pay_per_shift, requires_education, career_track, resolution ("auto"|"minigame"|"skill_check"), minigame_scene
+- **`CareerTrackData`** — levels[] of `{title, pay, days_required, performance_required}`
+- **`NPCData`** — id, name, gender, birthday, home_id, work_job_id, sprite_set, personality_tags[], loved_gifts[], liked_gifts[], disliked_gifts[], hated_gifts[], dialogue_id, schedule_id, marriageable, compatibility{}
+- **`DialogueData`** — nodes{} keyed by node_id, each `{text, choices[]}`
+- **`ScheduleData`** — entries[] of `{hour, minute, zone_id, target_marker, action}`, seasonal_overrides{}, weekly_overrides{}
+- **`HouseTierData`** — tier, name, cost, interior_scene, furniture_slots, bed_count
+- **`FurnitureData`** — id, item, placed_scene, footprint, provides_action
+- **`RecipeData`** — id, inputs[], outputs[], station, time_minutes
+- **`RelationshipStageData`** — stage, min_value, max_value, unlocks[]
+- **`AudioTrackData`** — id, stream, loop, volume_db, bus
+- **`CharacterProfile`** — id, name, gender, portrait_index, sprite_index, birth_year, age, parents[], spouse, children[], money, inventory_data (sub-Resource), needs_data (sub-Resource), relationships{}, job_state, house_tier, current_zone, last_position
+- **`FamilyTree`** — members[] (all CharacterProfiles, living + deceased + kids), active_id, deceased_ids[]
+
+---
+
+## Save schema (`SavePayload` Resource)
+
+```
+SavePayload
+├── version: int                      # bump on schema changes; SAVE_VERSION = 1
+├── created_at_unix: int
+├── time_state: Dictionary            # TimeManager.serialize()
+├── family_tree: FamilyTree           # spans generations
+├── active_character_id: String
+├── world_state:
+│   ├── zone_states { zone_id: { crops_state, foraged_today, chopped_trees } }
+│   ├── npc_overrides { npc_id: { current_zone, last_seen_position, schedule_offset } }
+│   ├── house_tier: int
+│   └── owned_furniture[]
+├── economy_state { money, transaction_log_tail[] }
+├── unlocks { recipes[], areas[], achievements[] }
+└── settings { music_vol, sfx_vol, ... }
+```
+
+**Auto-save triggers**: `sleep_completed`, `NOTIFICATION_WM_CLOSE_REQUEST`, `player_died` (before succession prompt).
+
+**Multi-generation succession**: `FamilyTree.members` keeps every character (living and dead) with `deceased` + `death_year` flags. On death → save → prompt user to pick eligible adult child → `GameState.switch_active_character(child)`. **Inheritance**: house passes to spouse if alive else eldest adult child; money 50% to spouse, 50% split among children; relationships are per-character (not transferred); job/career resets. NPCs can have memory of deceased parent surfaced in dialogue.
+
+After 2 generations of distance, deceased characters retain only summary fields (name, lifespan, key events) to cap save bloat.
+
+---
+
+## Scene tree pattern (every zone scene)
+
+```
+Town (Node2D, exports zone_id: String)
+├── TileMapLayers
+│   ├── Ground (TileMapLayer)
+│   ├── Decoration (TileMapLayer)
+│   ├── Collision (TileMapLayer, physics layer)
+│   └── Roof (TileMapLayer, y_sort)
+├── Spawns (Marker2D children: spawn_default, spawn_from_farm, ...)
+├── ZoneTransitions (Area2D children: to_farm, to_forest, to_beach, to_house)
+├── Interactables (doors, shops, beds, workbenches)
+├── NPCs
+├── YSort (player + dynamic actors attached at runtime)
+└── ZoneCamera (Camera2D bounded to map rect)
+```
+
+Boot flow: `boot.tscn` → if save exists offer Continue, else New Game → `character_creation.tscn` → `SceneRouter.goto_zone("town", "spawn_default")`.
+
+---
+
+## Implementation milestones (ordered, independently testable)
+
+Each milestone assumes the previous is complete.
+
+### M1 — Project skeleton
+Create `project.godot` (display 320×180, scale 4x, main scene = boot), all 14 autoload stub scripts, input action map, `boot.tscn`, `main_menu.tscn`, `character_creation.tscn` (placeholder).
+**Test**: launch → menu → New Game → blank screen with placeholder HUD.
+
+### M2 — Tilemap + walking player
+Import LimeZu Modern Exteriors + Kenney Tiny Town to `assets/sprites/tilesets/`. Build `town_tileset.tres` with collision. Author `town.tscn` (start 30×30, expand later). Implement `Player` (CharacterBody2D, AnimatedSprite2D, 4-dir idle/walk, run on Shift). `SceneRouter` instances player into Town's YSort. Camera2D bounded to map.
+**Test**: walk, collide with walls.
+
+### M3 — TimeManager + HUD clock
+Implement `TimeManager` (tick every 0.625s), build `hud.tscn` + `clock_widget.tscn` on persistent UI layer. Pause on Esc → simple pause menu.
+**Test**: clock advances; debug `time_scale=60` confirms 1 day = 15 real min.
+
+### M4 — Zone transitions
+Author Farm, Forest, Beach scenes (tilemap only, tiny is fine). Implement `ZoneTransition` Area2D + `SceneRouter.goto_zone` (fade → free → instance → reparent player at marker → fade in → emit).
+**Test**: walk between all 4 zones.
+
+### M5 — Needs system + sleep
+`NeedsManager` decay rates per need + `needs_bars.tscn` (5 color-coded bars). `bed.tscn` interact → `sleep_requested` → `TimeManager.advance_to_next_morning()` (jump to next 06:00, refill Energy).
+**Test**: needs decay over time; sleep refills and advances day.
+
+### M6 — Save/Load (single character, no FamilyTree yet)
+`SavePayload` Resource with current fields (just one CharacterProfile). `SaveManager.save_now/load_slot`, both .tres + .json. Auto-save on sleep + quit. Main menu detects save → "Continue".
+**Test**: play → sleep → quit → relaunch → Continue restores time, position, needs.
+
+### M7 — Inventory + Items + Economy
+`ItemData` resource + 10 starter items in `data/items/`. `InventoryManager` model + `inventory_menu.tscn` (6×4 grid drag-drop). `EconomyManager` + `money_widget.tscn`. Debug shopkeeper NPC + `shop_ui.tscn` (buy/sell list).
+**Test**: pick up items, buy/sell, money persists in save.
+
+### M8 — NPCs + dialogue + schedules
+`NPCData`/`DialogueData`/`ScheduleData` resources. Author 3 starter NPCs (`anna.tres`, `bryan.tres`, `cora.tres`) with dialogue + schedules. `npc.tscn` configurable from `NPCData`. `NPCScheduleRunner` polls current `(hour,minute)` against entries, navigates via `NavigationAgent2D`. `DialogueManager` + `dialogue_box.tscn`. `RelationshipManager` + `relationship_menu.tscn`.
+**Test**: NPCs walk routine; talking modifies relationship; dropping a loved/hated gift triggers reaction.
+
+### M9 — Jobs + Careers + Skills
+`JobData` + `CareerTrackData`. Author one job per category: cashier (service, auto skill-check), farmer (self-employed, crop actions), painter (creative, easel produces art ItemData + fame), doctor (skilled, requires school). `JobManager` (apply, schedule shifts, run resolution). `career_menu.tscn`. `school.tscn` interior + study action that grants `diploma`/`degree` over many days. `crop_tile.tscn` + `CropData` (till → plant → water → grow on day_passed → harvest). `fishing_spot.tscn` on Beach (timing minigame).
+**Test**: full work loop per category; money increases; promotions trigger.
+
+### M10 — Housing tiers + build/buy
+`HouseTierData` (4 tiers) + 4 interior scenes. `EconomyManager.buy_house_upgrade(tier)` swaps interior reference. `FurnitureData` + `build_buy_menu.tscn` (grid-snapped placement, persisted via `world_state.owned_furniture`).
+**Test**: upgrade through all tiers; placed furniture survives save/load.
+
+### M11 — Family: marriage, pregnancy, kids, aging
+Extend `RelationshipManager` for dating → engaged → married. Spouse pathfinds to player house, schedule overridden to home zone. `FamilyManager` aging (`year_passed` listener), children age baby → child → teen → adult. Pregnancy: action with married spouse, 14-day timer, child `CharacterProfile` instantiated. `child.tscn` actor (follows parent indoors, attends school by age). **Promote `SavePayload` to v2** with `FamilyTree`; add v1→v2 migration in `SaveManager`.
+**Test**: marry, conceive, child born, ages through stages, becomes adult.
+
+### M12 — Death, succession, inheritance
+`FamilyManager.try_die`: each year past `LIFE_EXPECTANCY_MIN` increases death probability; guaranteed by `LIFE_EXPECTANCY_MAX`. On death: save → succession UI listing eligible adult children → `GameState.switch_active_character`. Inheritance rules centralized in `scripts/systems/save/inheritance_rules.gd`. Adult-child move-out option (their own tier-1 apartment). "No heirs" → restart with preserved town or new world.
+**Test**: speedrun via debug `time_scale=600` to hit death; verify successor inherits house + money; play 2 generations.
+
+### M13 — Polish (audio, animations, content pass)
+`AudioManager` with per-zone music + day/night variants. SFX for footsteps (per surface), interact, UI, dialogue blip. Particle FX for sleep, level up, marriage. Expand to 8-12 NPCs with full dialogue + romance arcs. Balance pass on needs decay, prices, careers.
+
+---
+
+## Critical files (built first, M1-M3)
+
+Everything downstream depends on these. Get them right or pay 10x later.
+
+- [project.godot](project.godot) — autoload registrations, input map, display, main scene
+- [autoloads/event_bus.gd](autoloads/event_bus.gd) — signal contracts; wrong signals = wrong everything
+- [autoloads/time_manager.gd](autoloads/time_manager.gd) — drives needs, schedules, jobs, aging
+- [autoloads/scene_router.gd](autoloads/scene_router.gd) — owns persistent player + UI; defines zone transition contract
+- [autoloads/save_manager.gd](autoloads/save_manager.gd) + [scripts/systems/save/save_payload.gd](scripts/systems/save/save_payload.gd) — schema every system serializes into; getting it wrong forces painful rewrites at M11/M12
+
+---
+
+## Asset acquisition list
+
+**Tiles & characters** (pick LimeZu as primary visual style, use rest as fallback):
+- LimeZu Modern Interiors — https://limezu.itch.io/moderninteriors
+- LimeZu Modern Exteriors — https://limezu.itch.io/modernexteriors
+- Kenney Tiny Town — https://kenney.nl/assets/tiny-town (CC0)
+- Cute Fantasy by Kenmi — https://kenmi-art.itch.io/cute-fantasy-rpg
+- OpenGameArt LPC base — https://opengameart.org/content/lpc-base-assets
+
+**UI**:
+- Kenney UI Pack RPG — https://kenney.nl/assets/ui-pack-rpg-expansion (CC0)
+
+**Fonts**:
+- m5x7 / m3x6 by Daniel Linssen — https://managore.itch.io/m5x7
+
+**Audio**:
+- Eric Matyas / soundimage.org — https://soundimage.org (attribution required)
+- Tallbeard Music Loop Bundle — https://tallbeard.itch.io/music-loop-bundle
+- Kenney Sound Packs — https://kenney.nl/assets?q=audio (CC0)
+
+Track every license in `assets/LICENSES.md` (append on each import).
+
+---
+
+## Risks & key tradeoffs
+
+1. **NPC continuity across zones** — NPC at the bakery is "off-screen" while player is at the farm. Solution: simulate schedules in pure data via `NPCScheduleRunner`; instantiate the visible sprite only when player enters the NPC's current zone. `npc_overrides` in save reflects last-known state.
+
+2. **Resource save schema lock-in** — renaming `character_profile.gd` after M6 breaks all loads. Mitigation: pin Resource scripts to stable paths under `resources/`; never move them; maintain `SAVE_VERSION` and a migration table; JSON sidecar provides recovery.
+
+3. **NPC schedule content treadmill** — Stardew schedules with festivals/weather/relationship variants is endless work. Mitigation: ship M11 with 3 NPCs and one base schedule each. Add `seasonal_overrides` only after M11 stabilizes. Defer festivals.
+
+4. **Mini-game scope creep** — one mini-game per career *category* maximum: register-rush (service skilled tier), painting timing-bar (creative), fishing minigame (self-employed). Skill check is the default; mini-games are upgrades.
+
+5. **Multi-generation save bloat** — cap historical detail; deceased characters >2 generations old keep only summary fields. Centralize inheritance logic in one file for testability.
+
+6. **Pixel-art style consistency** — pick *one* style family at M1 (recommended: LimeZu) and stick with it. Mixing Kenney 1-bit + LimeZu + LPC will look broken.
+
+---
+
+## Verification
+
+End-to-end smoke test after every milestone:
+
+- **After M1-M3**: Launch → New Game → walk in Town → clock advances → pause works.
+- **After M4-M6**: Walk between all 4 zones → sleep → quit → relaunch → Continue restores everything.
+- **After M7-M8**: Buy from shopkeeper → talk to all 3 NPCs → relationship bars move → gifts produce correct reactions → NPCs follow daily schedules.
+- **After M9-M10**: Hold each of 4 job types → earn money → buy house upgrades → place furniture → save/load preserves layout.
+- **After M11-M12**: Use debug `time_scale=600` → marry an NPC → have a child → child grows up → original character dies → succession UI works → play as adult child → inherits money + house correctly.
+- **After M13**: Play one full generation at normal time scale (~10 real hours of play) end-to-end; no crashes, audio fits zones, all 8-12 NPCs have working dialogue + schedules.
+
+Add GUT (Godot Unit Test) coverage at minimum for: `time_manager` tick boundaries, `needs` decay rates, `save` round-trip (including v1→v2 migration), `inventory` add/remove edge cases (full slots, stack overflow), `relationship` stage transitions.

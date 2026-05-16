@@ -1,0 +1,355 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" shape-rendering="crispEdges">
+  <!--
+    Pixel Town — Mobile Poster / Story Ad
+    Size: 1080×1920
+    Layout:
+      - Logo zone: top 25% (480px) — stacked wordmark centered
+      - Hero zone: 480–1632 (1152px) — pixel-art town scene at dusk
+      - Tagline banner: bottom 15% (288px) — cream bg, deep_brown text
+    Colors: brand brief §5 + §11
+  -->
+
+  <!-- Sky gradient: day-to-dusk using brand colors -->
+  <defs>
+    <linearGradient id="sky_grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A8DADC"/>
+      <stop offset="60%" stop-color="#F5C26B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#6D5A7E"/>
+    </linearGradient>
+    <linearGradient id="ground_grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6A994E"/>
+      <stop offset="100%" stop-color="#3A2A1B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base background (brand_teal) -->
+  <rect width="1080" height="1920" fill="#2E6E78"/>
+
+  <!-- Sky -->
+  <rect x="0" y="0" width="1080" height="1632" fill="url(#sky_grad)"/>
+
+  <!-- Ground -->
+  <rect x="0" y="1380" width="1080" height="252" fill="url(#ground_grad)"/>
+
+  <!-- Path / cobblestone road (pixel blocks, 16px grid) -->
+  <g fill="#B7AB98">
+    <!-- Cobblestone road center strip -->
+    <rect x="432" y="1380" width="216" height="252"/>
+    <!-- Stone tile lines -->
+    <rect x="432" y="1380" width="1" height="252" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="504" y="1380" width="1" height="252" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="576" y="1380" width="1" height="252" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="648" y="1380" width="1" height="252" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="432" y="1428" width="216" height="1" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="432" y="1476" width="216" height="1" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="432" y="1524" width="216" height="1" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="432" y="1572" width="216" height="1" fill="#3A2A1B" opacity="0.3"/>
+    <rect x="432" y="1620" width="216" height="1" fill="#3A2A1B" opacity="0.3"/>
+  </g>
+
+  <!-- Town buildings (pixel-art style, 16px-grid) -->
+  <!-- Building left: shop/bakery -->
+  <g transform="translate(80, 880)">
+    <!-- Main structure -->
+    <rect x="0" y="128" width="256" height="384" fill="#EAE0CC"/>
+    <rect x="0" y="128" width="256" height="4" fill="#3A2A1B"/>
+    <!-- Roof (peaked) -->
+    <polygon points="128,0 256,128 0,128" fill="#C84630"/>
+    <rect x="0" y="124" width="256" height="4" fill="#3A2A1B"/>
+    <!-- Chimney -->
+    <rect x="192" y="-48" width="32" height="80" fill="#B7AB98"/>
+    <rect x="188" y="-52" width="40" height="8" fill="#3A2A1B"/>
+    <!-- Door -->
+    <rect x="96" y="352" width="64" height="160" fill="#3A2A1B"/>
+    <rect x="104" y="360" width="48" height="64" fill="#2E6E78"/>
+    <!-- Window left -->
+    <rect x="16" y="192" width="80" height="80" fill="#3A2A1B"/>
+    <rect x="20" y="196" width="72" height="72" fill="#A8DADC"/>
+    <rect x="56" y="196" width="4" height="72" fill="#3A2A1B"/>
+    <rect x="20" y="232" width="72" height="4" fill="#3A2A1B"/>
+    <!-- Window right -->
+    <rect x="160" y="192" width="80" height="80" fill="#3A2A1B"/>
+    <rect x="164" y="196" width="72" height="72" fill="#A8DADC"/>
+    <rect x="200" y="196" width="4" height="72" fill="#3A2A1B"/>
+    <rect x="164" y="232" width="72" height="4" fill="#3A2A1B"/>
+    <!-- Sign -->
+    <rect x="80" y="272" width="96" height="48" fill="#F5C26B"/>
+    <rect x="78" y="270" width="100" height="52" fill="none" stroke="#3A2A1B" stroke-width="4"/>
+  </g>
+
+  <!-- Building right: house -->
+  <g transform="translate(744, 944)">
+    <!-- Main structure -->
+    <rect x="0" y="96" width="256" height="320" fill="#F8EDD4"/>
+    <rect x="0" y="96" width="256" height="4" fill="#3A2A1B"/>
+    <!-- Roof -->
+    <polygon points="128,0 256,96 0,96" fill="#2E6E78"/>
+    <rect x="0" y="92" width="256" height="4" fill="#3A2A1B"/>
+    <!-- Door -->
+    <rect x="96" y="288" width="64" height="128" fill="#3A2A1B"/>
+    <rect x="104" y="296" width="48" height="48" fill="#A8DADC"/>
+    <!-- Windows -->
+    <rect x="16" y="144" width="64" height="64" fill="#3A2A1B"/>
+    <rect x="20" y="148" width="56" height="56" fill="#F5C26B" opacity="0.8"/>
+    <rect x="48" y="148" width="4" height="56" fill="#3A2A1B"/>
+    <rect x="20" y="176" width="56" height="4" fill="#3A2A1B"/>
+    <rect x="176" y="144" width="64" height="64" fill="#3A2A1B"/>
+    <rect x="180" y="148" width="56" height="56" fill="#F5C26B" opacity="0.8"/>
+    <rect x="208" y="148" width="4" height="56" fill="#3A2A1B"/>
+    <rect x="180" y="176" width="56" height="4" fill="#3A2A1B"/>
+    <!-- Flower box -->
+    <rect x="16" y="208" width="64" height="16" fill="#E07A5F"/>
+    <rect x="176" y="208" width="64" height="16" fill="#E07A5F"/>
+  </g>
+
+  <!-- Center building: town hall / inn -->
+  <g transform="translate(360, 768)">
+    <!-- Base -->
+    <rect x="0" y="192" width="360" height="480" fill="#EAE0CC"/>
+    <rect x="0" y="192" width="360" height="4" fill="#3A2A1B"/>
+    <!-- Tall roof (peak) -->
+    <polygon points="180,0 360,192 0,192" fill="#2E6E78"/>
+    <rect x="0" y="188" width="360" height="4" fill="#3A2A1B"/>
+    <!-- Flagpole -->
+    <rect x="174" y="-80" width="6" height="100" fill="#3A2A1B"/>
+    <!-- Flag (brand_cream) -->
+    <rect x="180" y="-80" width="64" height="40" fill="#F8EDD4"/>
+    <rect x="180" y="-80" width="64" height="4" fill="#3A2A1B"/>
+    <rect x="244" y="-80" width="4" height="40" fill="#3A2A1B"/>
+    <rect x="180" y="-44" width="64" height="4" fill="#3A2A1B"/>
+    <!-- Chimney -->
+    <rect x="64" y="80" width="32" height="128" fill="#B7AB98"/>
+    <rect x="60" y="76" width="40" height="8" fill="#3A2A1B"/>
+    <!-- Door (large, double) -->
+    <rect x="136" y="448" width="88" height="224" fill="#3A2A1B"/>
+    <rect x="144" y="456" width="32" height="96" fill="#A8DADC"/>
+    <rect x="184" y="456" width="32" height="96" fill="#A8DADC"/>
+    <!-- Windows row 1 -->
+    <rect x="16" y="240" width="80" height="80" fill="#3A2A1B"/>
+    <rect x="20" y="244" width="72" height="72" fill="#A8DADC"/>
+    <rect x="56" y="244" width="4" height="72" fill="#3A2A1B"/>
+    <rect x="20" y="280" width="72" height="4" fill="#3A2A1B"/>
+    <rect x="264" y="240" width="80" height="80" fill="#3A2A1B"/>
+    <rect x="268" y="244" width="72" height="72" fill="#A8DADC"/>
+    <rect x="304" y="244" width="4" height="72" fill="#3A2A1B"/>
+    <rect x="268" y="280" width="72" height="4" fill="#3A2A1B"/>
+    <!-- Windows row 2 -->
+    <rect x="16" y="352" width="80" height="80" fill="#3A2A1B"/>
+    <rect x="20" y="356" width="72" height="72" fill="#F5C26B" opacity="0.9"/>
+    <rect x="56" y="356" width="4" height="72" fill="#3A2A1B"/>
+    <rect x="20" y="392" width="72" height="4" fill="#3A2A1B"/>
+    <rect x="264" y="352" width="80" height="80" fill="#3A2A1B"/>
+    <rect x="268" y="356" width="72" height="72" fill="#F5C26B" opacity="0.9"/>
+    <rect x="304" y="356" width="4" height="72" fill="#3A2A1B"/>
+    <rect x="268" y="392" width="72" height="4" fill="#3A2A1B"/>
+    <!-- Hanging sign -->
+    <rect x="136" y="288" width="88" height="48" fill="#F5C26B"/>
+    <rect x="134" y="286" width="92" height="52" fill="none" stroke="#3A2A1B" stroke-width="4"/>
+  </g>
+
+  <!-- Trees flanking path -->
+  <!-- Left tree -->
+  <g transform="translate(288, 1280)">
+    <rect x="16" y="80" width="16" height="96" fill="#3A2A1B"/>
+    <rect x="0" y="32" width="48" height="64" fill="#6A994E"/>
+    <rect x="8" y="8" width="32" height="48" fill="#6A994E"/>
+    <rect x="12" y="0" width="24" height="24" fill="#6A994E"/>
+    <rect x="0" y="32" width="48" height="4" fill="#3A2A1B"/>
+  </g>
+  <!-- Right tree -->
+  <g transform="translate(744, 1280)">
+    <rect x="16" y="80" width="16" height="96" fill="#3A2A1B"/>
+    <rect x="0" y="32" width="48" height="64" fill="#6A994E"/>
+    <rect x="8" y="8" width="32" height="48" fill="#6A994E"/>
+    <rect x="12" y="0" width="24" height="24" fill="#6A994E"/>
+    <rect x="0" y="32" width="48" height="4" fill="#3A2A1B"/>
+  </g>
+
+  <!-- Sun / dusk light (sun_gold) -->
+  <circle cx="820" cy="640" r="80" fill="#F5C26B" opacity="0.9"/>
+  <circle cx="820" cy="640" r="96" fill="#F5C26B" opacity="0.3"/>
+  <circle cx="820" cy="640" r="128" fill="#F5C26B" opacity="0.1"/>
+
+  <!-- Player character (center, walking toward viewer) — 32×48 pixel humanoid -->
+  <g transform="translate(492, 1280)">
+    <!-- Shadow -->
+    <ellipse cx="48" cy="192" rx="32" ry="8" fill="#3A2A1B" opacity="0.4"/>
+    <!-- Body -->
+    <rect x="20" y="80" width="56" height="80" fill="#2E6E78"/>
+    <rect x="20" y="80" width="56" height="4" fill="#3A2A1B"/>
+    <rect x="20" y="156" width="56" height="4" fill="#3A2A1B"/>
+    <!-- Head -->
+    <rect x="24" y="32" width="48" height="48" fill="#F8EDD4"/>
+    <rect x="22" y="30" width="52" height="52" fill="none" stroke="#3A2A1B" stroke-width="4"/>
+    <!-- Eyes -->
+    <rect x="32" y="48" width="8" height="8" fill="#3A2A1B"/>
+    <rect x="56" y="48" width="8" height="8" fill="#3A2A1B"/>
+    <!-- Hair -->
+    <rect x="22" y="30" width="52" height="16" fill="#F5C26B"/>
+    <rect x="22" y="30" width="52" height="4" fill="#3A2A1B"/>
+    <!-- Legs -->
+    <rect x="24" y="160" width="20" height="32" fill="#3A2A1B"/>
+    <rect x="52" y="160" width="20" height="32" fill="#3A2A1B"/>
+    <!-- Shoes -->
+    <rect x="20" y="188" width="24" height="8" fill="#3A2A1B"/>
+    <rect x="52" y="188" width="24" height="8" fill="#3A2A1B"/>
+    <!-- Arm left (waving) -->
+    <rect x="0" y="88" width="20" height="40" fill="#2E6E78"/>
+    <rect x="-8" y="72" width="20" height="20" fill="#F8EDD4"/>
+    <rect x="-10" y="70" width="24" height="24" fill="none" stroke="#3A2A1B" stroke-width="4"/>
+    <!-- Arm right -->
+    <rect x="76" y="88" width="20" height="56" fill="#2E6E78"/>
+    <!-- Heart above -->
+    <g fill="#E07A5F" transform="translate(40,-32)">
+      <rect x="0" y="8" width="8" height="8"/>
+      <rect x="8" y="0" width="8" height="8"/>
+      <rect x="8" y="8" width="8" height="8"/>
+      <rect x="16" y="8" width="8" height="8"/>
+      <rect x="0" y="16" width="8" height="16"/>
+      <rect x="8" y="16" width="8" height="16"/>
+      <rect x="16" y="16" width="8" height="16"/>
+      <rect x="4" y="32" width="16" height="8"/>
+      <rect x="8" y="40" width="8" height="8"/>
+    </g>
+  </g>
+
+  <!-- NPC character (right of player, facing player) -->
+  <g transform="translate(612, 1296)">
+    <ellipse cx="40" cy="192" rx="28" ry="8" fill="#3A2A1B" opacity="0.4"/>
+    <!-- Body -->
+    <rect x="8" y="80" width="56" height="80" fill="#E07A5F"/>
+    <rect x="8" y="80" width="56" height="4" fill="#3A2A1B"/>
+    <rect x="8" y="156" width="56" height="4" fill="#3A2A1B"/>
+    <!-- Head -->
+    <rect x="12" y="32" width="48" height="48" fill="#F8EDD4"/>
+    <rect x="10" y="30" width="52" height="52" fill="none" stroke="#3A2A1B" stroke-width="4"/>
+    <!-- Eyes (looking left toward player) -->
+    <rect x="18" y="48" width="8" height="8" fill="#3A2A1B"/>
+    <rect x="40" y="48" width="8" height="8" fill="#3A2A1B"/>
+    <!-- Hair (bun) -->
+    <rect x="10" y="26" width="52" height="16" fill="#3A2A1B"/>
+    <rect x="28" y="10" width="24" height="24" fill="#3A2A1B"/>
+    <!-- Legs -->
+    <rect x="12" y="160" width="20" height="32" fill="#3A2A1B"/>
+    <rect x="40" y="160" width="20" height="32" fill="#3A2A1B"/>
+    <rect x="8" y="188" width="24" height="8" fill="#3A2A1B"/>
+    <rect x="40" y="188" width="24" height="8" fill="#3A2A1B"/>
+    <!-- Arm left (extended toward player) -->
+    <rect x="-24" y="88" width="32" height="16" fill="#E07A5F"/>
+    <!-- Arm right -->
+    <rect x="64" y="88" width="16" height="48" fill="#E07A5F"/>
+    <!-- Gift/flower in extended hand -->
+    <g fill="#6A994E" transform="translate(-28,72)">
+      <rect x="0" y="0" width="4" height="24"/>
+      <rect x="-4" y="-8" width="4" height="8" fill="#E07A5F"/>
+      <rect x="4" y="-8" width="4" height="8" fill="#E07A5F"/>
+      <rect x="0" y="-12" width="4" height="8" fill="#E07A5F"/>
+    </g>
+  </g>
+
+  <!-- Dusk atmosphere overlay -->
+  <rect x="0" y="480" width="1080" height="1152" fill="#6D5A7E" opacity="0.25"/>
+
+  <!-- ============================
+       LOGO ZONE (top 480px)
+       ============================ -->
+  <rect x="0" y="0" width="1080" height="480" fill="#2E6E78"/>
+  <rect x="0" y="476" width="1080" height="4" fill="#3A2A1B"/>
+
+  <!-- Stacked logo centered: "PIXEL" over "TOWN"
+       Scaled 12× from SVG source (33×21 → 396×252)
+       Centered: x=(1080-396)/2=342, y=(480-252)/2=114 -->
+  <g transform="translate(342,114) scale(12)" fill="#F8EDD4" shape-rendering="crispEdges">
+    <!-- PIXEL top row — 5x7 glyphs, 1px gap, centered in 33px -->
+    <!-- P at x=0 -->
+    <path d="M0,0 h4 v1 h-4 Z M0,1 h1 v2 h-1 Z M4,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v3 h-1 Z"/>
+    <!-- I at x=6 -->
+    <path d="M6,0 h3 v1 h-3 Z M7,1 h1 v5 h-1 Z M6,6 h3 v1 h-3 Z"/>
+    <!-- X at x=10 -->
+    <path d="M10,0 h1 v1 h-1 Z M14,0 h1 v1 h-1 Z M11,1 h1 v2 h-1 Z M13,1 h1 v2 h-1 Z M12,3 h1 v1 h-1 Z M11,4 h1 v2 h-1 Z M13,4 h1 v2 h-1 Z M10,6 h1 v1 h-1 Z M14,6 h1 v1 h-1 Z"/>
+    <!-- E at x=16 -->
+    <path d="M16,0 h5 v1 h-5 Z M16,1 h1 v2 h-1 Z M16,3 h4 v1 h-4 Z M16,4 h1 v2 h-1 Z M16,6 h5 v1 h-5 Z"/>
+    <!-- L at x=22 -->
+    <path d="M22,0 h1 v6 h-1 Z M22,6 h5 v1 h-5 Z"/>
+    <!-- Row 2: TOWN centered in 33px — starts at x=2 -->
+    <!-- T at x=2 -->
+    <path d="M2,10 h5 v1 h-5 Z M4,11 h1 v6 h-1 Z"/>
+    <!-- O at x=9 -->
+    <path d="M10,10 h3 v1 h-3 Z M9,11 h1 v5 h-1 Z M13,11 h1 v5 h-1 Z M10,16 h3 v1 h-3 Z"/>
+    <!-- W at x=15 -->
+    <path d="M15,10 h1 v4 h-1 Z M19,10 h1 v4 h-1 Z M15,14 h1 v1 h-1 Z M17,14 h1 v1 h-1 Z M19,14 h1 v1 h-1 Z M15,15 h2 v1 h-2 Z M18,15 h2 v1 h-2 Z M15,16 h1 v1 h-1 Z M19,16 h1 v1 h-1 Z"/>
+    <!-- N at x=21 -->
+    <path d="M21,10 h1 v1 h-1 Z M25,10 h1 v1 h-1 Z M21,11 h2 v1 h-2 Z M25,11 h1 v1 h-1 Z M21,12 h1 v1 h-1 Z M23,12 h1 v1 h-1 Z M25,12 h1 v1 h-1 Z M21,13 h1 v1 h-1 Z M24,13 h2 v1 h-2 Z M21,14 h1 v3 h-1 Z M25,14 h1 v3 h-1 Z"/>
+  </g>
+
+  <!-- Tagline banner (bottom 15% = 288px) -->
+  <rect x="0" y="1632" width="1080" height="288" fill="#F8EDD4"/>
+  <rect x="0" y="1632" width="1080" height="4" fill="#3A2A1B"/>
+
+  <!-- Tagline text in m5x7 pixel font style, scaled 6× -->
+  <!-- "Plant. Love. Pass it on." — approx centered -->
+  <g transform="translate(120, 1712) scale(6)" fill="#3A2A1B" shape-rendering="crispEdges">
+    <!-- P -->
+    <path d="M0,0 h4 v1 h-4 Z M0,1 h1 v2 h-1 Z M4,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v3 h-1 Z"/>
+    <!-- l -->
+    <path d="M6,0 h1 v7 h-1 Z"/>
+    <!-- a -->
+    <path d="M8,2 h3 v1 h-3 Z M11,3 h1 v4 h-1 Z M8,4 h3 v1 h-3 Z M8,5 h1 v2 h-1 Z M8,6 h4 v1 h-4 Z"/>
+    <!-- n -->
+    <path d="M13,2 h1 v5 h-1 Z M14,2 h2 v1 h-2 Z M16,3 h1 v4 h-1 Z"/>
+    <!-- t -->
+    <path d="M18,1 h1 v1 h-1 Z M18,2 h3 v1 h-3 Z M18,3 h1 v4 h-1 Z M18,6 h2 v1 h-2 Z"/>
+    <!-- . -->
+    <path d="M22,6 h1 v1 h-1 Z"/>
+    <!-- space x=24 -->
+    <!-- L -->
+    <path d="M25,0 h1 v6 h-1 Z M25,6 h4 v1 h-4 Z"/>
+    <!-- o -->
+    <path d="M31,2 h3 v1 h-3 Z M30,3 h1 v3 h-1 Z M34,3 h1 v3 h-1 Z M31,6 h3 v1 h-3 Z"/>
+    <!-- v -->
+    <path d="M36,2 h1 v3 h-1 Z M40,2 h1 v3 h-1 Z M37,5 h1 v1 h-1 Z M39,5 h1 v1 h-1 Z M38,6 h1 v1 h-1 Z"/>
+    <!-- e -->
+    <path d="M42,3 h3 v1 h-3 Z M42,4 h1 v1 h-1 Z M42,4 h4 v1 h-4 Z M42,5 h1 v1 h-1 Z M42,6 h4 v1 h-4 Z"/>
+    <!-- . -->
+    <path d="M47,6 h1 v1 h-1 Z"/>
+  </g>
+  <!-- Second tagline line -->
+  <g transform="translate(168, 1808) scale(6)" fill="#3A2A1B" shape-rendering="crispEdges">
+    <!-- P -->
+    <path d="M0,0 h4 v1 h-4 Z M0,1 h1 v2 h-1 Z M4,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v3 h-1 Z"/>
+    <!-- a -->
+    <path d="M6,2 h3 v1 h-3 Z M9,3 h1 v4 h-1 Z M6,4 h3 v1 h-3 Z M6,5 h1 v2 h-1 Z M6,6 h4 v1 h-4 Z"/>
+    <!-- s -->
+    <path d="M11,2 h3 v1 h-3 Z M11,3 h1 v1 h-1 Z M11,4 h3 v1 h-3 Z M13,5 h1 v1 h-1 Z M11,6 h3 v1 h-3 Z"/>
+    <!-- s -->
+    <path d="M15,2 h3 v1 h-3 Z M15,3 h1 v1 h-1 Z M15,4 h3 v1 h-3 Z M17,5 h1 v1 h-1 Z M15,6 h3 v1 h-3 Z"/>
+    <!-- space -->
+    <!-- i -->
+    <path d="M20,0 h1 v1 h-1 Z M20,2 h1 v5 h-1 Z"/>
+    <!-- t -->
+    <path d="M23,1 h1 v1 h-1 Z M22,2 h3 v1 h-3 Z M23,3 h1 v3 h-1 Z M22,6 h3 v1 h-3 Z"/>
+    <!-- space -->
+    <!-- o -->
+    <path d="M27,2 h3 v1 h-3 Z M26,3 h1 v3 h-1 Z M30,3 h1 v3 h-1 Z M27,6 h3 v1 h-3 Z"/>
+    <!-- n -->
+    <path d="M32,2 h1 v5 h-1 Z M33,2 h2 v1 h-2 Z M35,3 h1 v4 h-1 Z"/>
+    <!-- . -->
+    <path d="M37,6 h1 v1 h-1 Z"/>
+  </g>
+
+  <!-- Tiny copyright / brand note -->
+  <text x="540" y="1900" font-family="monospace" font-size="24" fill="#B7AB98" text-anchor="middle" shape-rendering="crispEdges">© Pixel Town — pixeltown.game</text>
+
+  <!-- Pixel Town iconmark bottom-right of tagline zone -->
+  <g transform="translate(928, 1664) scale(8)" fill="#F8EDD4" shape-rendering="crispEdges">
+    <rect width="16" height="16" fill="#2E6E78"/>
+    <!-- P -->
+    <g transform="translate(4,4)">
+      <path d="M0,0 h4 v1 h-4 Z M0,1 h1 v2 h-1 Z M4,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v3 h-1 Z"/>
+    </g>
+    <!-- T -->
+    <g transform="translate(8,5)">
+      <path d="M0,0 h5 v1 h-5 Z M2,1 h1 v6 h-1 Z"/>
+    </g>
+  </g>
+</svg>

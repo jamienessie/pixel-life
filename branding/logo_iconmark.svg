@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Pixel Town PT monogram -- 16x16 iconmark
+       P (5x7) and T (5x7) overlapping, sharing central vertical bar.
+       P top-left at (4,4), T offset right+down at (8,5).
+       Fill: brand_cream (#F8EDD4), background: brand_teal (#2E6E78). -->
+  <rect width="16" height="16" fill="#2E6E78"/>
+  <g fill="#F8EDD4">
+    <!-- P -->
+    <g transform="translate(4,4)">
+      <path d="M0,0 h4 v1 h-4 Z M0,1 h1 v2 h-1 Z M4,1 h1 v2 h-1 Z M0,3 h4 v1 h-4 Z M0,4 h1 v3 h-1 Z"/>
+    </g>
+    <!-- T -->
+    <g transform="translate(8,5)">
+      <path d="M0,0 h5 v1 h-5 Z M2,1 h1 v6 h-1 Z"/>
+    </g>
+  </g>
+</svg>

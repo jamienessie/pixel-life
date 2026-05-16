@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/fish_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "sardine"
+name = "Sardine"
+item_id = "sardine"
+seasons = Array[String]([])
+time_window = Vector2i(0, 24)
+rarity_weight = 240
+min_sell_price = 10
+max_sell_price = 20
+difficulty = 1

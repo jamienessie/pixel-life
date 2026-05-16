@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cora"
+npc_name = "Cora"
+gender = "female"
+birthday_day = 21
+birthday_season = "autumn"
+home_zone = "beach"
+work_job_id = ""
+sprite_set = "cora"
+personality_tags = Array[String](["shy", "kind"])
+loved_gifts = Array[String](["fiber", "corn_seeds"])
+liked_gifts = Array[String](["tomato", "fishing_rod"])
+disliked_gifts = Array[String](["stone"])
+hated_gifts = Array[String](["wood"])
+dialogue_id = "cora_dialogue"
+schedule_id = "cora_schedule"
+marriageable = true
+compatibility = {}

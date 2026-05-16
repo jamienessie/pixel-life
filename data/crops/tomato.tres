@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/crop_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "tomato"
+name = "Tomato"
+seed_item_id = "tomato_seeds"
+harvest_item_id = "tomato"
+harvest_qty_min = 1
+harvest_qty_max = 2
+growth_stages = 4
+days_per_stage = 1
+seasons = Array[String](["summer"])
+regrow = true
+regrow_days = 3
+water_required = true
+withers_in_wrong_season = true

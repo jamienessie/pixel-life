@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://furn_bed001"]
+[ext_resource path="res://resources/furniture_data.gd" type="Script" id="furniture_script"]
+[resource]
+script = ExtResource("furniture_script")
+id = "bed_single"
+item_id = "bed_single"
+display_name = "Single Bed"
+footprint = Vector2i(1, 2)
+provides_action = "sleep"
+cost = 0
+category = "bedroom"
+min_house_tier = 1
+effects = {"sleep_energy_bonus": 0}
+description = "A basic bed. Refills energy on sleep."

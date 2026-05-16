@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="JobData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/job_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "painter"
+name = "Painter"
+category = "creative"
+career_track = "creative"
+shift_hours = Vector2i(10, 16)
+shift_days = Array[int]([1, 2, 3, 4, 5])
+base_pay_per_shift = 70
+requires_education = ""
+resolution = "skill_check"
+workplace_zone = "town"
+workplace_marker = "spawn_default"

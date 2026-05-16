@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hud0001"]
+
+[ext_resource type="PackedScene" path="res://ui/hud/clock_widget.tscn" id="1_clock"]
+[ext_resource type="PackedScene" path="res://ui/hud/money_widget.tscn" id="2_money"]
+[ext_resource type="PackedScene" path="res://ui/hud/needs_bars.tscn" id="3_needs"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClockWidget" parent="." instance=ExtResource("1_clock")]
+[node name="MoneyWidget" parent="." instance=ExtResource("2_money")]
+[node name="NeedsBars" parent="." instance=ExtResource("3_needs")]

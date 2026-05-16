@@ -1,0 +1,127 @@
+[gd_scene load_steps=3 format=3 uid="uid://touchhud01"]
+
+[ext_resource type="Script" path="res://scripts/ui/touch_joystick.gd" id="1_joystick"]
+[ext_resource type="Script" path="res://scripts/ui/touch_action_button.gd" id="2_button"]
+
+[node name="TouchHUD" type="CanvasLayer"]
+layer = 99
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Joystick" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -100.0
+offset_right = 104.0
+offset_bottom = 0.0
+grow_vertical = 0
+script = ExtResource("1_joystick")
+
+[node name="InteractButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -40.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_button")
+action = &"INTERACT"
+label_text = "E"
+
+[node name="InventoryButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -40.0
+offset_right = -54.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_button")
+action = &"MENU"
+label_text = "I"
+
+[node name="RelationshipsButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -78.0
+offset_right = -4.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_button")
+synth_keycode = 82
+label_text = "R"
+
+[node name="CareerButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -78.0
+offset_right = -54.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_button")
+synth_keycode = 74
+label_text = "J"
+
+[node name="BuildBuyButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -116.0
+offset_right = -4.0
+offset_bottom = -82.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_button")
+synth_keycode = 66
+label_text = "B"
+
+[node name="PauseButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 28.0
+grow_horizontal = 0
+script = ExtResource("2_button")
+action = &"PAUSE"
+label_text = "II"

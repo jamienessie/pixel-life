@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "anna_dialogue"
+nodes = {
+	"greet": {
+		"text": "Hi there! Welcome to Pelican Town. I'm Anna. Need anything?",
+		"choices": [
+			{"text": "Just saying hello!", "next": "hello_reply"},
+			{"text": "Tell me about yourself.", "next": "about"},
+			{"text": "Goodbye!", "next": "farewell"}
+		]
+	},
+	"hello_reply": {
+		"text": "Well, hello right back at you! It's always nice to see a new face around here.",
+		"choices": [
+			{"text": "Tell me about yourself.", "next": "about"},
+			{"text": "Goodbye!", "next": "farewell"}
+		]
+	},
+	"about": {
+		"text": "I've lived here my whole life. I run the town's general store. We get all sorts of folks passing through!",
+		"choices": [
+			{"text": "That's fascinating!", "next": "thanks"},
+			{"text": "Goodbye!", "next": "farewell"}
+		]
+	},
+	"thanks": {
+		"text": "You're sweet. Come visit anytime, okay?",
+		"choices": [
+			{"text": "I will! Goodbye.", "next": "farewell"}
+		]
+	},
+	"farewell": {
+		"text": "Take care now! Come back soon.",
+		"choices": []
+	}
+}

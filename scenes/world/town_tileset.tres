@@ -1,0 +1,13 @@
+[gd_resource type="TileSet" load_steps=2 format=3 uid="uid://b1town001"]
+
+[ext_resource path="res://assets/sprites/tilesets/town/town_tiles.png" id="1_town"]
+
+[resource]
+tile_size = Vector2i(16, 16)
+physics_layers = [{
+"layers": [{
+"name": "World",
+"layer": 0,
+"collision_polygon_count": 0
+}]
+}]

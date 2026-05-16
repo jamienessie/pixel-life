@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AchievementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/achievement_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "first_child"
+name = "New Life"
+description = "Welcome your first child into the world."
+hidden = false
+trigger_event = "child_born"
+trigger_condition = {}
+reward_money = 300

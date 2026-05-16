@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/npc_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "bryan"
+npc_name = "Bryan"
+gender = "male"
+birthday_day = 7
+birthday_season = "summer"
+home_zone = "farm"
+work_job_id = ""
+sprite_set = "bryan"
+personality_tags = Array[String](["grumpy", "hardworking"])
+loved_gifts = Array[String](["corn", "tomato_seeds"])
+liked_gifts = Array[String](["wood", "stone"])
+disliked_gifts = Array[String](["fiber"])
+hated_gifts = Array[String](["fishing_rod"])
+dialogue_id = "bryan_dialogue"
+schedule_id = "bryan_schedule"
+marriageable = true
+compatibility = {}

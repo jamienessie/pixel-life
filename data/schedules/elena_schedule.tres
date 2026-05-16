@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ScheduleData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/schedule_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "elena_schedule"
+entries = [{
+	"hour": 5, "minute": 0, "zone_id": "beach", "target_marker": "spawn_default", "action": "stand"
+}, {
+	"hour": 13, "minute": 0, "zone_id": "town", "target_marker": "spawn_default", "action": "stand"
+}, {
+	"hour": 18, "minute": 0, "zone_id": "beach", "target_marker": "spawn_default", "action": "stand"
+}]
+seasonal_overrides = {}
+weekly_overrides = {}

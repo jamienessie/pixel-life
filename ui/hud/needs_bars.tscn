@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://di7fmgroygvag"]
+[ext_resource type="Script" path="res://ui/hud/needs_bars.gd" id="1"]
+
+[node name="NeedsBars" type="Control"]
+anchors_preset = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 80.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="EnergyBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(76, 10)
+size_flags_horizontal = 4
+show_percentage = false
+value = 100.0
+
+[node name="Label" type="Label" parent="VBox/EnergyBar"]
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 76.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 8
+text = "Energy"
+vertical_alignment = 1
+
+[node name="HungerBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(76, 10)
+show_percentage = false
+value = 100.0
+
+[node name="Label" type="Label" parent="VBox/HungerBar"]
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 76.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 8
+text = "Hunger"
+vertical_alignment = 1
+
+[node name="HygieneBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(76, 10)
+show_percentage = false
+value = 100.0
+
+[node name="Label" type="Label" parent="VBox/HygieneBar"]
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 76.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 8
+text = "Hygiene"
+vertical_alignment = 1
+
+[node name="SocialBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(76, 10)
+show_percentage = false
+value = 100.0
+
+[node name="Label" type="Label" parent="VBox/SocialBar"]
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 76.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 8
+text = "Social"
+vertical_alignment = 1
+
+[node name="FunBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(76, 10)
+show_percentage = false
+value = 100.0
+
+[node name="Label" type="Label" parent="VBox/FunBar"]
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 76.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 8
+text = "Fun"
+vertical_alignment = 1

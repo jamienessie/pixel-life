@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="JobData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/job_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "doctor"
+name = "Doctor"
+category = "skilled"
+career_track = "skilled"
+shift_hours = Vector2i(8, 18)
+shift_days = Array[int]([0, 1, 2, 3, 4])
+base_pay_per_shift = 120
+requires_education = "degree"
+resolution = "skill_check"
+workplace_zone = "town"
+workplace_marker = "spawn_default"

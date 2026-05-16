@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AchievementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/achievement_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "lived_to_60"
+name = "Elder"
+description = "Reach age 60."
+hidden = false
+trigger_event = "year_passed"
+trigger_condition = {"age": 60}
+reward_money = 200

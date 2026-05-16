@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://house_tier_4"]
+[ext_resource path="res://resources/house_tier_data.gd" type="Script" id="house_tier_script"]
+[resource]
+script = ExtResource("house_tier_script")
+tier = 4
+name = "Mansion"
+cost = 50000
+bed_count = 3
+furniture_slots = []
