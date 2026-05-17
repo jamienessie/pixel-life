@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 128" role="img" aria-label="Pixel Life wordmark — white knockout">
+  <!-- White knockout wordmark for dark backgrounds. Coral period stays
+       coral on purpose — it's the brand accent, not a tonal element. -->
+  <text x="32" y="92"
+        textLength="500"
+        lengthAdjust="spacingAndGlyphs"
+        font-family="'Archivo Black', system-ui, -apple-system, sans-serif"
+        font-size="72"
+        letter-spacing="-1.44"
+        fill="#ffffff">PIXEL LIFE</text>
+  <rect x="544" y="80" width="20" height="20" fill="#ff5d7a"/>
+</svg>

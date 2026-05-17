@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" role="img" aria-label="Pixel Life splash">
+  <!-- Pixel Life splash, 1080x1920 portrait (xxhdpi reference).
+       Brand: Sunny — cream paper, ink wordmark, coral period accent,
+       slab border. Same visual language as the icon so first launch
+       does not feel like two different products. -->
+
+  <!-- Paper field -->
+  <rect width="1080" height="1920" fill="#fff8e6"/>
+
+  <!-- Slab border 12px inset 24px from edges. Matches the icon's 8px
+       border, scaled for the larger canvas. -->
+  <rect x="30" y="30" width="1020" height="1860"
+        fill="none" stroke="#111111" stroke-width="12"/>
+
+  <!-- Wordmark, centered horizontally and sitting just above optical
+       center. textLength locks the rendered width so the coral period
+       lands deterministically even if Archivo Black isn't loaded at
+       render time (Android 12+ splash API renders before web fonts). -->
+  <text x="140" y="980"
+        textLength="800"
+        lengthAdjust="spacingAndGlyphs"
+        font-family="'Archivo Black', system-ui, -apple-system, sans-serif"
+        font-size="128"
+        letter-spacing="-2.56"
+        fill="#111111">PIXEL LIFE</text>
+
+  <!-- Coral period punctuation. Sits 18px above baseline and 14px below,
+       matching the proportions of the master wordmark. -->
+  <rect x="956" y="962" width="32" height="32" fill="#ff5d7a"/>
+</svg>

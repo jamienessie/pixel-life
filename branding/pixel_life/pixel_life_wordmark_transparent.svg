@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 128" role="img" aria-label="Pixel Life wordmark — transparent ink">
+  <!-- Pixel Life wordmark on transparent background, ink text + coral period.
+       For marketing chrome over photo/illustration where the cream paper
+       field isn't wanted. -->
+  <text x="32" y="92"
+        textLength="500"
+        lengthAdjust="spacingAndGlyphs"
+        font-family="'Archivo Black', system-ui, -apple-system, sans-serif"
+        font-size="72"
+        letter-spacing="-1.44"
+        fill="#111111">PIXEL LIFE</text>
+  <rect x="544" y="80" width="20" height="20" fill="#ff5d7a"/>
+</svg>

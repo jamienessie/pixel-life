@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" role="img" aria-label="Pixel Life — Play Store feature graphic">
+  <!-- Play Store feature graphic, 1024x500.
+       Sunny brand: cream paper, ink wordmark, coral accent, slab border,
+       Sunny tile-rainbow strip echoing the in-app category tiles. -->
+
+  <!-- Paper field -->
+  <rect width="1024" height="500" fill="#fff8e6"/>
+
+  <!-- Slab border 8px inset 16 -->
+  <rect x="20" y="20" width="984" height="460"
+        fill="none" stroke="#111111" stroke-width="8"/>
+
+  <!-- Wordmark — large, anchored above middle. textLength locks width
+       so the coral period lands deterministically. -->
+  <text x="192" y="232"
+        textLength="640"
+        lengthAdjust="spacingAndGlyphs"
+        font-family="'Archivo Black', system-ui, -apple-system, sans-serif"
+        font-size="104"
+        letter-spacing="-2.08"
+        fill="#111111">PIXEL LIFE</text>
+
+  <!-- Coral period punctuation, baseline-aligned with the wordmark. -->
+  <rect x="844" y="208" width="28" height="28" fill="#ff5d7a"/>
+
+  <!-- Tagline, Geist Mono, soft ink. Tracking +2 to match Sunny small-caps. -->
+  <text x="512" y="290"
+        text-anchor="middle"
+        font-family="'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace"
+        font-size="22"
+        letter-spacing="2"
+        fill="#3a3328">YOUR DAY · AT A GLANCE</text>
+
+  <!-- Sunny tile rainbow strip. 10 tiles, 56x56, 8px gaps.
+       Width = 10*56 + 9*8 = 632. Centered: start x = (1024-632)/2 = 196.
+       Each tile gets a 3px slab-style shadow offset (2,2) using its
+       --tile-*-shadow token to preserve the in-app feel. -->
+
+  <!-- Shadows first, so tiles sit cleanly on top. -->
+  <rect x="198" y="382" width="56" height="56" fill="#c8334e"/>
+  <rect x="262" y="382" width="56" height="56" fill="#cc5a30"/>
+  <rect x="326" y="382" width="56" height="56" fill="#c98c14"/>
+  <rect x="390" y="382" width="56" height="56" fill="#1a9c69"/>
+  <rect x="454" y="382" width="56" height="56" fill="#208d96"/>
+  <rect x="518" y="382" width="56" height="56" fill="#2479cc"/>
+  <rect x="582" y="382" width="56" height="56" fill="#4848cc"/>
+  <rect x="646" y="382" width="56" height="56" fill="#7848cc"/>
+  <rect x="710" y="382" width="56" height="56" fill="#cc4890"/>
+  <rect x="774" y="382" width="56" height="56" fill="#111111"/>
+
+  <!-- Tiles -->
+  <rect x="196" y="380" width="56" height="56" fill="#ff5d7a"/>
+  <rect x="260" y="380" width="56" height="56" fill="#ff8a5b"/>
+  <rect x="324" y="380" width="56" height="56" fill="#ffc24a"/>
+  <rect x="388" y="380" width="56" height="56" fill="#3cd49a"/>
+  <rect x="452" y="380" width="56" height="56" fill="#4ec9d4"/>
+  <rect x="516" y="380" width="56" height="56" fill="#5aaaff"/>
+  <rect x="580" y="380" width="56" height="56" fill="#7c7cff"/>
+  <rect x="644" y="380" width="56" height="56" fill="#b07cff"/>
+  <rect x="708" y="380" width="56" height="56" fill="#ff7cc3"/>
+  <rect x="772" y="380" width="56" height="56" fill="#3a3328"/>
+</svg>

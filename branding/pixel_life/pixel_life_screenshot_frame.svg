@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" role="img" aria-label="Pixel Life screenshot frame template">
+  <!-- Play Store phone screenshot frame template, 1080x1920 portrait.
+       Composition:
+         - Top 200px: cream caption strip (Archivo Black ink, left-aligned).
+         - 6px ink separator line.
+         - Inner rect (1008x1632) holds the captured UI screenshot.
+         - 12px ink slab border around the whole composition.
+       Engineering: replace "{{CAPTION}}" with the caption string per
+       RAI-50_ASSET_PACK.md §4 (one of five per screenshot), and either
+       embed the screenshot PNG via <image> in the placeholder rect or
+       composite externally. -->
+
+  <!-- Paper field -->
+  <rect width="1080" height="1920" fill="#fff8e6"/>
+
+  <!-- Slab border 12px inset 24px -->
+  <rect x="30" y="30" width="1020" height="1860"
+        fill="none" stroke="#111111" stroke-width="12"/>
+
+  <!-- Caption strip occupies y=36 to y=236 inside the border.
+       Caption text baseline at y=160, font-size 52 Archivo Black, left
+       padded 56px. Coral period punctuation at the end. -->
+  <text x="56" y="160"
+        font-family="'Archivo Black', system-ui, -apple-system, sans-serif"
+        font-size="52"
+        letter-spacing="-1.04"
+        fill="#111111">{{CAPTION}}</text>
+
+  <!-- 6px ink separator below the caption strip. -->
+  <rect x="36" y="240" width="1008" height="6" fill="#111111"/>
+
+  <!-- Screenshot placeholder area: x=36 y=252 width=1008 height=1632.
+       Replace this <rect> with an <image href="screenshot_phone_N.png"
+       x="36" y="252" width="1008" height="1632"
+       preserveAspectRatio="xMidYMid slice"/> when compositing.
+       Until then a soft paper-line fill marks the hole and a centered
+       placeholder label documents the expected size. -->
+  <rect x="36" y="252" width="1008" height="1632" fill="#e8dfca"/>
+  <text x="540" y="1068"
+        text-anchor="middle"
+        font-family="'Geist Mono', ui-monospace, monospace"
+        font-size="36"
+        letter-spacing="2"
+        fill="#3a3328">PASTE 1008×1632 SCREENSHOT HERE</text>
+</svg>
