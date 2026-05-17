@@ -34,28 +34,26 @@ func test_npc_cora_home_zone() -> void:
 func test_all_npc_dialogue_data_exists() -> void:
 	var npc_ids := ["anna", "bryan", "cora"]
 	for npc_id in npc_ids:
-		var data: Variant = load("res://data/npcs/%s.tres" % npc_id)
-		var dialogue_id: String = data.get("dialogue_id", "")
-		var dialogue: Variant = load("res://data/dialogue/%s.tres" % dialogue_id)
+		var data: NPCData = load("res://data/npcs/%s.tres" % npc_id)
+		var dialogue_id: String = data.dialogue_id
+		var dialogue: DialogueData = load("res://data/dialogue/%s.tres" % dialogue_id)
 		assert_not_null(dialogue, "dialogue %s loads" % dialogue_id)
-		var nodes: Variant = dialogue.get("nodes", {})
-		assert_true(nodes.has("greet"), "dialogue %s has greet node" % dialogue_id)
-		assert_true(nodes.has("farewell"), "dialogue %s has farewell node" % dialogue_id)
+		assert_true(dialogue.nodes.has("greet"), "dialogue %s has greet node" % dialogue_id)
+		assert_true(dialogue.nodes.has("farewell"), "dialogue %s has farewell node" % dialogue_id)
 
 func test_all_npc_schedule_data_exists() -> void:
 	var npc_ids := ["anna", "bryan", "cora"]
 	for npc_id in npc_ids:
-		var data: Variant = load("res://data/npcs/%s.tres" % npc_id)
-		var schedule_id: String = data.get("schedule_id", "")
-		var schedule: Variant = load("res://data/schedules/%s.tres" % schedule_id)
+		var data: NPCData = load("res://data/npcs/%s.tres" % npc_id)
+		var schedule_id: String = data.schedule_id
+		var schedule: ScheduleData = load("res://data/schedules/%s.tres" % schedule_id)
 		assert_not_null(schedule, "schedule %s loads" % schedule_id)
-		var entries: Variant = schedule.get("entries", [])
-		assert_gt(entries.size(), 0, "schedule %s has entries" % schedule_id)
+		assert_gt(schedule.entries.size(), 0, "schedule %s has entries" % schedule_id)
 
 func test_anna_schedule_entries_valid() -> void:
-	var schedule: Variant = load("res://data/schedules/anna_schedule.tres")
-	var entries: Variant = schedule.get("entries", [])
-	for entry in entries:
+	var schedule: ScheduleData = load("res://data/schedules/anna_schedule.tres")
+	var entries: Array = schedule.entries
+	for entry: Dictionary in entries:
 		assert_true(entry.has("hour"), "entry has hour")
 		assert_true(entry.has("minute"), "entry has minute")
 		assert_true(entry.has("zone_id"), "entry has zone_id")
